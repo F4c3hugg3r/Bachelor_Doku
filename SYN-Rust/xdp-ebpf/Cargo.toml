@@ -1,0 +1,19 @@
+[package]
+name = "xdp-ebpf"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+xdp-common = { path = "../xdp-common" }
+network-types = "0.1.0"
+etherparse = { version = "0.19.0", default-features = false }
+aya-ebpf = { workspace = true }
+aya-log-ebpf = { workspace = true }
+siphasher = { version = "1.0", default-features = false }
+
+[build-dependencies]
+which = { workspace = true }
+
+[[bin]]
+name = "scanner"
+path = "src/main.rs"
