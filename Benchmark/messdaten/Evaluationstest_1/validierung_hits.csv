@@ -1,0 +1,21 @@
+Scanner;Run;File;Hits
+SYN-Rust (AF_PACKET);run_1;scan_output.csv;2048
+SYN-Rust (AF_PACKET);run_2;scan_output.csv;2048
+SYN-Rust (AF_PACKET);run_3;scan_output.csv;2048
+SYN-Rust (AF_PACKET);run_4;scan_output.csv;2048
+SYN-Rust (AF_PACKET);run_5;scan_output.csv;2048
+SYN-Rust (XDP, Copy);run_1;scan_output.csv;2048
+SYN-Rust (XDP, Copy);run_2;scan_output.csv;2048
+SYN-Rust (XDP, Copy);run_3;scan_output.csv;2048
+SYN-Rust (XDP, Copy);run_4;scan_output.csv;2048
+SYN-Rust (XDP, Copy);run_5;scan_output.csv;2048
+SYN-Rust (XDP, Generic);run_1;scan_output.csv;2048
+SYN-Rust (XDP, Generic);run_2;scan_output.csv;2048
+SYN-Rust (XDP, Generic);run_3;scan_output.csv;2048
+SYN-Rust (XDP, Generic);run_4;scan_output.csv;2048
+SYN-Rust (XDP, Generic);run_5;scan_output.csv;2048
+SYN-Rust (XDP, Zero-Copy);run_1;scan_output.csv;2048
+SYN-Rust (XDP, Zero-Copy);run_2;scan_output.csv;2048
+SYN-Rust (XDP, Zero-Copy);run_3;scan_output.csv;2048
+SYN-Rust (XDP, Zero-Copy);run_4;scan_output.csv;2048
+SYN-Rust (XDP, Zero-Copy);run_5;scan_output.csv;2048

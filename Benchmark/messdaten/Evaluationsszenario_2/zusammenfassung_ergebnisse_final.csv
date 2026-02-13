@@ -1,0 +1,7 @@
+Scanner;Effizienz [PPS/CPU(%)] (aktiv);PPS (aktiv);CPU Netto [%] (aktiv);RAM Netto [MB] (aktiv);CPU Netto [%] (gesamt);RAM Netto [MB] (gesamt)
+SYN-Rust (XDP, Zero-Copy, kein RST);184352.51;507324.00;2.76;82.17;1.84;62.03
+SYN-Rust (XDP, Copy);106118.25;604912.09;5.70;76.96;3.57;57.73
+SYN-Rust (XDP, Generic);103086.55;603858.98;5.86;96.93;3.70;74.72
+SYN-Rust (AF_PACKET);99871.48;607395.84;6.08;112.15;3.82;88.28
+Masscan (keine Duplikatsentfernung);75533.76;501738.01;6.64;34.78;4.79;31.38
+ZMap;13272.41;493838.32;37.21;62.31;26.45;58.32

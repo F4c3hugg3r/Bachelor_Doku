@@ -1,0 +1,31 @@
+Scanner;Run;File;Hits
+Masscan;run_1;outpput_results.txt;13419528
+Masscan;run_2;outpput_results.txt;13423381
+Masscan;run_3;outpput_results.txt;13419857
+Masscan;run_4;outpput_results.txt;13416128
+Masscan;run_5;outpput_results.txt;13419191
+SYN-Rust (AF_PACKET, 2 Threads);run_1;scan_output.csv;13419670
+SYN-Rust (AF_PACKET, 2 Threads);run_2;scan_output.csv;13423043
+SYN-Rust (AF_PACKET, 2 Threads);run_3;scan_output.csv;13411441
+SYN-Rust (AF_PACKET, 2 Threads);run_4;scan_output.csv;13417352
+SYN-Rust (AF_PACKET, 2 Threads);run_5;scan_output.csv;13416385
+SYN-Rust (XDP, Copy);run_1;scan_output.csv;13416355
+SYN-Rust (XDP, Copy);run_2;scan_output.csv;13414515
+SYN-Rust (XDP, Copy);run_3;scan_output.csv;13420700
+SYN-Rust (XDP, Copy);run_4;scan_output.csv;13422273
+SYN-Rust (XDP, Copy);run_5;scan_output.csv;13415357
+SYN-Rust (XDP, Generic);run_1;scan_output.csv;13418598
+SYN-Rust (XDP, Generic);run_2;scan_output.csv;13420485
+SYN-Rust (XDP, Generic);run_3;scan_output.csv;13417519
+SYN-Rust (XDP, Generic);run_4;scan_output.csv;13416348
+SYN-Rust (XDP, Generic);run_5;scan_output.csv;13421669
+SYN-Rust (XDP, Zero-Copy);run_1;scan_output.csv;13421770
+SYN-Rust (XDP, Zero-Copy);run_2;scan_output.csv;13415096
+SYN-Rust (XDP, Zero-Copy);run_3;scan_output.csv;13418156
+SYN-Rust (XDP, Zero-Copy);run_4;scan_output.csv;13413597
+SYN-Rust (XDP, Zero-Copy);run_5;scan_output.csv;13418098
+ZMap;run_1;output_results.csv;10066090
+ZMap;run_2;output_results.csv;10066436
+ZMap;run_3;output_results.csv;10069650
+ZMap;run_4;output_results.csv;10060268
+ZMap;run_5;output_results.csv;10069037

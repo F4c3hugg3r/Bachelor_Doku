@@ -1,0 +1,360 @@
+starte Dummy_Receiver
+====================
+	20% Antwortwahrscheinlichkeit:
+	./run.sh enp1s0f1 20
+	
+	Evaluationsmodus:
+	./run.sh enp1s0f1 --valm
+
+Vergrößere Ringpuffer:
+====================
+sudo ethtool -G enp1s0f1 tx 4096 rx 4096
+
+=========================================================================================================
+Logs Szenario 1
+====================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.07s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[sudo] password for len: 
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     9388
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     9352
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     9372
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     9344
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     9380
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     9398
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     9374
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     9372
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     9386
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     9334
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     6144
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     6144
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     6144
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     6144
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     6144
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     6144
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.07s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     6144
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     6144
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     6144
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ ./run.sh enp1s0f1 --valm
+Running xdp_mirror on interface enp1s0f1 with response probability 50% and extra args: --valm
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-common v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-common)
+warning: xdp_mirror@0.1.0:    Compiling xdp_mirror-ebpf v0.1.0 (/home/len/code/Dummy-XDP-Receiver/xdp_mirror-ebpf)
+warning: xdp_mirror@0.1.0:     Finished `release` profile [optimized] target(s) in 1.34s
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `sudo -E target/release/xdp_mirror --iface enp1s0f1 --percentage 50 --valm`
+[WARN  xdp_mirror] failed to initialize eBPF logger: AYA_LOGS not found
+Waiting for Ctrl-C...
+^CExiting...
+=========================
+Empfangene Pakete gesamt:     6144
+Valide SYN Pakete:            4096
+Gesendete Antworten:          2048
+Empfangene RST Pakete:        2048
+=========================
+len@len-HP-ProDesk-600-G3-SFF:~/code/Dummy-XDP-Receiver$ 
+
+
+=========================================================================================================
+
+Ausgabe Szenario 2
+=========================
+Empfangene Pakete gesamt:     1996085756
+Valide SYN Pakete:            1928987258
+Gesendete Antworten:          385801548
+=========================
+
+=========================================================================================================
+
+Ausgabe Szenario 3
+=========================
+Empfangene Pakete gesamt:     280789532
+Valide SYN Pakete:            247810601
+Gesendete Antworten:          49568520
+=========================
+
+
+
+

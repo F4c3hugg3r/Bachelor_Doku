@@ -1,0 +1,2751 @@
+WICHTIG:
+
+Die Dateien 20260209_170831_Benchmark_Suite (-> Evaluationstest_1), 20260206_114816_Benchmark_Suite (-> Evaluationsszenario_1) und 20260206_112824_Benchmark_Suite (-> Evaluationsszenario_2) wurden nachträglich entsprechend der Szenarien umbenannt und in ein anderes Unterverzeichnis verschoben.
+
+========================================================================================================================
+Test Szenario 1
+========================================================================================================================
+lennard@lennard-MS-7D18:~$ cd Bachelor/
+lennard@lennard-MS-7D18:~/Bachelor$ sudo ethtool -G enp6s0 tx 4096 rx 4096
+[sudo] password for lennard: 
+lennard@lennard-MS-7D18:~/Bachelor$ sudo python3 benchmark_suite_1.py 
+=== Benchmark Suite Gestartet ===
+Output: ./messdaten/20260209_170831_Benchmark_Suite
+Interface: enp6s0
+=================================
+
+
+>>> Szenario: SYN-Rust (XDP, Generic)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 3546]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected. Flushing socket
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 3583]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected. Flushing socket
+.............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 3620]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected. Flushing socket
+..............................Nach 3s gesendet: 4096 Pakete
+.........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 3657]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected. Flushing socket
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+........... [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 3694]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected. Flushing socket
+.............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+>>> Szenario: SYN-Rust (XDP, Copy)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 3733]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected. Flushing socket
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 3770]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected. Flushing socket
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 3812]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected. Flushing socket
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 3850]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected. Flushing socket
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 3892]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected. Flushing socket
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+>>> Szenario: SYN-Rust (XDP, Zero-Copy)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 3929]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+....................Answers lost: 0, Answers read: 2048, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 3973]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 4011]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 4048]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 4085]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+Spawning for dst_port number 0 (from chan)
+Spawning done
+waiting for socket initialization...
+Assembling done
+Sending stopped - assembling finish expected
+..............................Nach 3s gesendet: 4096 Pakete
+..........Insgesamt 4096 Pakete in 4000 ms gesendet
+............ [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+>>> Szenario: SYN-Rust (AF_PACKET)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 4122]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................Spawning for dst_port number 0 (from chan)
+Spawning done
+Assembling done
+Sending stopped - assembling finish expected
+..............................Insgesamt 4096 Pakete in 3000 ms gesendet
+...................... [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 4159]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................Spawning for dst_port number 0 (from chan)
+Spawning done
+Assembling done
+Sending stopped - assembling finish expected
+..............................Insgesamt 4096 Pakete in 3000 ms gesendet
+...................... [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 4196]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................Spawning for dst_port number 0 (from chan)
+Spawning done
+Assembling done
+Sending stopped - assembling finish expected
+..............................Insgesamt 4096 Pakete in 3000 ms gesendet
+...................... [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 4233]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................Spawning for dst_port number 0 (from chan)
+Spawning done
+Assembling done
+Sending stopped - assembling finish expected
+..............................Insgesamt 4096 Pakete in 3000 ms gesendet
+...................... [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 4270]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           48 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               false
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................Spawning for dst_port number 0 (from chan)
+Spawning done
+Assembling done
+Sending stopped - assembling finish expected
+..............................Insgesamt 4096 Pakete in 3000 ms gesendet
+...................... [Auto-Stop: Idle]Broadcaster received signal: finish
+ [Post-Record]Answers lost: 0, Answers read: 2048, Duplicates: 0
+Error writing to stdout: Broken pipe (os error 32)
+error sending finish SendError { .. }
+eBPF Stats:
+  Received: 2048
+  Passed: 0
+  Valid: 2048
+  RST sent: 2048
+Scanjob done
+ Done.
+
+Fertig. Daten in: ./messdaten/20260209_170831_Benchmark_Suite
+
+lennard@lennard-MS-7D18:~/Bachelor$ python3 validate_scanner.py ./messdaten/20260209_170831_Benchmark_Suite
+Konfiguriere Netz: 10.0.0.0/20
+Hosts im Netz: 4,096
+Gefundene Dateien: 20
+Analysiere: SYN-Rust (AF_PACKET) -> run_1 (scan_output.csv)
+Analysiere: SYN-Rust (AF_PACKET) -> run_2 (scan_output.csv)
+Analysiere: SYN-Rust (AF_PACKET) -> run_3 (scan_output.csv)
+Analysiere: SYN-Rust (AF_PACKET) -> run_4 (scan_output.csv)
+Analysiere: SYN-Rust (AF_PACKET) -> run_5 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Copy) -> run_1 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Copy) -> run_2 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Copy) -> run_3 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Copy) -> run_4 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Copy) -> run_5 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Generic) -> run_1 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Generic) -> run_2 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Generic) -> run_3 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Generic) -> run_4 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Generic) -> run_5 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Zero-Copy) -> run_1 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Zero-Copy) -> run_2 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Zero-Copy) -> run_3 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Zero-Copy) -> run_4 (scan_output.csv)
+Analysiere: SYN-Rust (XDP, Zero-Copy) -> run_5 (scan_output.csv)
+
+--- Validierungs-Ergebnisse ---
+                  Scanner   Run  Coverage %  Accuracy %  Unique IPs  Even IPs (Correct)  Odd IPs (False)  Total Lines  Duplicates            File
+     SYN-Rust (AF_PACKET) run_1        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+     SYN-Rust (AF_PACKET) run_2        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+     SYN-Rust (AF_PACKET) run_3        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+     SYN-Rust (AF_PACKET) run_4        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+     SYN-Rust (AF_PACKET) run_5        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+     SYN-Rust (XDP, Copy) run_1        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+     SYN-Rust (XDP, Copy) run_2        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+     SYN-Rust (XDP, Copy) run_3        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+     SYN-Rust (XDP, Copy) run_4        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+     SYN-Rust (XDP, Copy) run_5        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+  SYN-Rust (XDP, Generic) run_1        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+  SYN-Rust (XDP, Generic) run_2        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+  SYN-Rust (XDP, Generic) run_3        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+  SYN-Rust (XDP, Generic) run_4        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+  SYN-Rust (XDP, Generic) run_5        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+SYN-Rust (XDP, Zero-Copy) run_1        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+SYN-Rust (XDP, Zero-Copy) run_2        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+SYN-Rust (XDP, Zero-Copy) run_3        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+SYN-Rust (XDP, Zero-Copy) run_4        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+SYN-Rust (XDP, Zero-Copy) run_5        50.0       100.0        2048                2048                0         2048           0 scan_output.csv
+
+Zusammenfassung gespeichert unter: ./messdaten/20260209_170831_Benchmark_Suite/validation_summary.csv
+
+--- Durchschnitt pro Scanner ---
+                  Scanner  Coverage %  Accuracy %  Unique IPs
+     SYN-Rust (AF_PACKET)        50.0       100.0      2048.0
+     SYN-Rust (XDP, Copy)        50.0       100.0      2048.0
+  SYN-Rust (XDP, Generic)        50.0       100.0      2048.0
+SYN-Rust (XDP, Zero-Copy)        50.0       100.0      2048.0
+
+========================================================================================================================
+TEST Szenario 2
+========================================================================================================================
+lennard@lennard-MS-7D18:~/Bachelor$ sudo python3 benchmark_suite_2.py 
+[sudo] password for lennard: 
+=== Benchmark Suite Gestartet ===
+Output: ./messdaten/20260206_114816_Benchmark_Suite
+Interface: enp6s0
+=================================
+
+
+>>> Szenario: SYN-Rust (XDP, Generic)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 4576]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3687584 Pakete
+..............................Nach 3s gesendet: 3698592 Pakete
+..............................Nach 3s gesendet: 3696448 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 12329290 Pakete
+..............................Nach 3s gesendet: 3699360 Pakete
+..............................Nach 3s gesendet: 3697280 Pakete
+..............................Nach 3s gesendet: 3698730 Pakete
+....................................................................................................Nach 10s gesendet: 12324266 Pakete
+..............................Nach 3s gesendet: 3694794 Pakete
+..............................Nach 3s gesendet: 3698826 Pakete
+..............................Nach 3s gesendet: 3699092 Pakete
+..........................................................................Assembling done
+Sending stopped - assembling finish expected
+......Insgesamt 67088544 Pakete in 55003 ms gesendet
+........................Answers lost: 0, Answers read: 13418598, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13418600
+  Passed: 2
+  Valid: 13418598
+  RST sent: 0
+Scanjob done
+exited with status Ok(.ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 4615]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3690176 Pakete
+..............................Nach 3s gesendet: 3697888 Pakete
+..............................Nach 3s gesendet: 3696416 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 12326666 Pakete
+..............................Nach 3s gesendet: 3697760 Pakete
+..............................Nach 3s gesendet: 3696416 Pakete
+..............................Nach 3s gesendet: 3696234 Pakete
+....................................................................................................Nach 10s gesendet: 12325738 Pakete
+..............................Nach 3s gesendet: 3699274 Pakete
+..............................Nach 3s gesendet: 3697834 Pakete
+..............................Nach 3s gesendet: 3697332 Pakete
+..........................................................................Assembling done
+Sending stopped - assembling finish expected
+......Insgesamt 67090592 Pakete in 55003 ms gesendet
+........................Answers lost: 0, Answers read: 13420485, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13420487
+  Passed: 2
+  Valid: 13420485
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 4658]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3684544 Pakete
+..............................Nach 3s gesendet: 3699392 Pakete
+..............................Nach 3s gesendet: 3698464 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 12326698 Pakete
+..............................Nach 3s gesendet: 3699776 Pakete
+..............................Nach 3s gesendet: 3697568 Pakete
+..............................Nach 3s gesendet: 3697194 Pakete
+....................................................................................................Nach 10s gesendet: 12325610 Pakete
+..............................Nach 3s gesendet: 3696554 Pakete
+..............................Nach 3s gesendet: 3694954 Pakete
+..............................Nach 3s gesendet: 3695572 Pakete
+..........................................................................Assembling done
+Sending stopped - assembling finish expected
+......Insgesamt 67090592 Pakete in 55003 ms gesendet
+.........................Answers lost: 0, Answers read: 13417519, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13417519
+  Passed: 0
+  Valid: 13417519
+  RST sent: 0
+Scanjob done
+exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 4698]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3685344 Pakete
+..............................Nach 3s gesendet: 3699712 Pakete
+..............................Nach 3s gesendet: 3692960 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 12321994 Pakete
+..............................Nach 3s gesendet: 3697280 Pakete
+..............................Nach 3s gesendet: 3698304 Pakete
+..............................Nach 3s gesendet: 3698762 Pakete
+....................................................................................................Nach 10s gesendet: 12325194 Pakete
+..............................Nach 3s gesendet: 3697290 Pakete
+..............................Nach 3s gesendet: 3698442 Pakete
+..............................Nach 3s gesendet: 3700180 Pakete
+..........................................................................Assembling done
+Sending stopped - assembling finish expected
+......Insgesamt 67088544 Pakete in 55003 ms gesendet
+........................Answers lost: 0, Answers read: 13416348, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13416350
+  Passed: 2
+  Valid: 13416348
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 4737]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3688032 Pakete
+..............................Nach 3s gesendet: 3699296 Pakete
+..............................Nach 3s gesendet: 3700064 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 12324906 Pakete
+..............................Nach 3s gesendet: 3698400 Pakete
+..............................Nach 3s gesendet: 3697408 Pakete
+..............................Nach 3s gesendet: 3698730 Pakete
+....................................................................................................Nach 10s gesendet: 12324298 Pakete
+..............................Nach 3s gesendet: 3696138 Pakete
+..............................Nach 3s gesendet: 3695242 Pakete
+..............................Nach 3s gesendet: 3694996 Pakete
+..........................................................................Assembling done
+Sending stopped - assembling finish expected
+......Insgesamt 67090592 Pakete in 55003 ms gesendet
+........................Answers lost: 0, Answers read: 13421669, Duplicates: 0
+.Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13421669
+  Passed: 0
+  Valid: 13421669
+  RST sent: 0
+Scanjob done
+exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+>>> Szenario: SYN-Rust (XDP, Copy)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 4778]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3691904 Pakete
+..............................Nach 3s gesendet: 3700192 Pakete
+..............................Nach 3s gesendet: 3700576 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 12333098 Pakete
+..............................Nach 3s gesendet: 3699936 Pakete
+..............................Nach 3s gesendet: 3699808 Pakete
+..............................Nach 3s gesendet: 3699242 Pakete
+....................................................................................................Nach 10s gesendet: 12333002 Pakete
+..............................Nach 3s gesendet: 3699562 Pakete
+..............................Nach 3s gesendet: 3699018 Pakete
+..............................Nach 3s gesendet: 3700884 Pakete
+.........................................................................Assembling done
+.Sending stopped - assembling finish expected
+......Insgesamt 67090592 Pakete in 55003 ms gesendet
+........................Answers lost: 0, Answers read: 13416355, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13416355
+  Passed: 0
+  Valid: 13416355
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 4821]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3691424 Pakete
+..............................Nach 3s gesendet: 3698784 Pakete
+..............................Nach 3s gesendet: 3701216 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 12329290 Pakete
+..............................Nach 3s gesendet: 3700640 Pakete
+..............................Nach 3s gesendet: 3700384 Pakete
+..............................Nach 3s gesendet: 3702442 Pakete
+....................................................................................................Nach 10s gesendet: 12328906 Pakete
+..............................Nach 3s gesendet: 3698442 Pakete
+..............................Nach 3s gesendet: 3698186 Pakete
+..............................Nach 3s gesendet: 3699156 Pakete
+.........................................................................Assembling done
+.Sending stopped - assembling finish expected
+......Insgesamt 67088544 Pakete in 55003 ms gesendet
+........................Answers lost: 0, Answers read: 13414515, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13414515
+  Passed: 0
+  Valid: 13414515
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 4861]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3692544 Pakete
+..............................Nach 3s gesendet: 3696896 Pakete
+..............................Nach 3s gesendet: 3698720 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 12325578 Pakete
+..............................Nach 3s gesendet: 3698816 Pakete
+..............................Nach 3s gesendet: 3700288 Pakete
+..............................Nach 3s gesendet: 3697642 Pakete
+....................................................................................................Nach 10s gesendet: 12328874 Pakete
+..............................Nach 3s gesendet: 3698858 Pakete
+..............................Nach 3s gesendet: 3698890 Pakete
+..............................Nach 3s gesendet: 3699764 Pakete
+..........................................................................Assembling done
+Sending stopped - assembling finish expected
+......Insgesamt 67090592 Pakete in 55003 ms gesendet
+........................Answers lost: 0, Answers read: 13420700, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13420700
+  Passed: 0
+  Valid: 13420700
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 4902]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3690912 Pakete
+..............................Nach 3s gesendet: 3698912 Pakete
+..............................Nach 3s gesendet: 3698944 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 12324842 Pakete
+..............................Nach 3s gesendet: 3699360 Pakete
+..............................Nach 3s gesendet: 3697120 Pakete
+..............................Nach 3s gesendet: 3697450 Pakete
+....................................................................................................Nach 10s gesendet: 12328618 Pakete
+..............................Nach 3s gesendet: 3698282 Pakete
+..............................Nach 3s gesendet: 3697706 Pakete
+..............................Nach 3s gesendet: 3699444 Pakete
+..........................................................................Assembling done
+Sending stopped - assembling finish expected
+......Insgesamt 67088544 Pakete in 55003 ms gesendet
+........................Answers lost: 0, Answers read: 13422273, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13422273
+  Passed: 0
+  Valid: 13422273
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 4941]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3689568 Pakete
+..............................Nach 3s gesendet: 3697024 Pakete
+..............................Nach 3s gesendet: 3696896 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 12327946 Pakete
+..............................Nach 3s gesendet: 3699424 Pakete
+..............................Nach 3s gesendet: 3698432 Pakete
+..............................Nach 3s gesendet: 3698794 Pakete
+....................................................................................................Nach 10s gesendet: 12326762 Pakete
+..............................Nach 3s gesendet: 3699082 Pakete
+..............................Nach 3s gesendet: 3698762 Pakete
+..............................Nach 3s gesendet: 3699636 Pakete
+..........................................................................Assembling done
+Sending stopped - assembling finish expected
+......Insgesamt 67089568 Pakete in 55003 ms gesendet
+........................Answers lost: 0, Answers read: 13415357, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13415357
+  Passed: 0
+  Valid: 13415357
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+>>> Szenario: SYN-Rust (XDP, Zero-Copy)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 5061]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 4424192 Pakete
+..............................Nach 3s gesendet: 4432416 Pakete
+..............................Nach 3s gesendet: 4431562 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 14770282 Pakete
+..............................Nach 3s gesendet: 4432832 Pakete
+..............................Nach 3s gesendet: 4432512 Pakete
+..............................Nach 3s gesendet: 4429834 Pakete
+....................................................................................................Nach 10s gesendet: 14775112 Pakete
+..............................Nach 3s gesendet: 4432456 Pakete
+..............................Nach 3s gesendet: 4434440 Pakete
+..............Assembling done
+Sending stopped - assembling finish expected
+......Insgesamt 67091412 Pakete in 46002 ms gesendet
+........................Answers lost: 0, Answers read: 13421770, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13421770
+  Passed: 0
+  Valid: 13421770
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 5099]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 4416064 Pakete
+..............................Nach 3s gesendet: 4429920 Pakete
+..............................Nach 3s gesendet: 4431786 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 14764778 Pakete
+..............................Nach 3s gesendet: 4431904 Pakete
+..............................Nach 3s gesendet: 4434432 Pakete
+..............................Nach 3s gesendet: 4433354 Pakete
+....................................................................................................Nach 10s gesendet: 14784552 Pakete
+..............................Nach 3s gesendet: 4436232 Pakete
+..............................Nach 3s gesendet: 4435304 Pakete
+..............Assembling done
+Sending stopped - assembling finish expected
+......Insgesamt 67091412 Pakete in 46002 ms gesendet
+........................Answers lost: 0, Answers read: 13415096, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13415098
+  Passed: 2
+  Valid: 13415096
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 5137]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 4429248 Pakete
+..............................Nach 3s gesendet: 4435136 Pakete
+..............................Nach 3s gesendet: 4435818 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 14784970 Pakete
+..............................Nach 3s gesendet: 4432768 Pakete
+..............................Nach 3s gesendet: 4430688 Pakete
+..............................Nach 3s gesendet: 4435690 Pakete
+....................................................................................................Nach 10s gesendet: 14778568 Pakete
+..............................Nach 3s gesendet: 4432692 Pakete
+..............................Nach 3s gesendet: 4433682 Pakete
+.............Assembling done
+.Sending stopped - assembling finish expected
+......Insgesamt 67090592 Pakete in 46002 ms gesendet
+........................Answers lost: 0, Answers read: 13418156, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13418156
+  Passed: 0
+  Valid: 13418156
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 5176]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 4430656 Pakete
+..............................Nach 3s gesendet: 4432384 Pakete
+..............................Nach 3s gesendet: 4431434 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 14771146 Pakete
+..............................Nach 3s gesendet: 4432288 Pakete
+..............................Nach 3s gesendet: 4433664 Pakete
+..............................Nach 3s gesendet: 4431434 Pakete
+....................................................................................................Nach 10s gesendet: 14775112 Pakete
+..............................Nach 3s gesendet: 4436296 Pakete
+..............................Nach 3s gesendet: 4435880 Pakete
+.............Assembling done
+.Sending stopped - assembling finish expected
+......Insgesamt 67091412 Pakete in 46002 ms gesendet
+........................Answers lost: 0, Answers read: 13413597, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13413597
+  Passed: 0
+  Valid: 13413597
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 5215]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 4428416 Pakete
+..............................Nach 3s gesendet: 4434816 Pakete
+..............................Nach 3s gesendet: 4435306 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 14782346 Pakete
+..............................Nach 3s gesendet: 4429216 Pakete
+..............................Nach 3s gesendet: 4432160 Pakete
+..............................Nach 3s gesendet: 4432074 Pakete
+....................................................................................................Nach 10s gesendet: 14777928 Pakete
+..............................Nach 3s gesendet: 4430984 Pakete
+..............................Nach 3s gesendet: 4429032 Pakete
+..............Assembling done
+Sending stopped - assembling finish expected
+......Insgesamt 67091412 Pakete in 46002 ms gesendet
+........................Answers lost: 0, Answers read: 13418098, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13418098
+  Passed: 0
+  Valid: 13418098
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+>>> Szenario: SYN-Rust (AF_PACKET, 2 Threads)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 5260]WARN: Zero Copy requires XDP. Disabling Zero Copy.
+
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3180800 Pakete
+..............................Nach 3s gesendet: 3189248 Pakete
+..............................Nach 3s gesendet: 3189248 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 10636928 Pakete
+..............................Nach 3s gesendet: 3184906 Pakete
+..............................Nach 3s gesendet: 3186560 Pakete
+..............................Nach 3s gesendet: 3190272 Pakete
+....................................................................................................Nach 10s gesendet: 10622218 Pakete
+..............................Nach 3s gesendet: 3186560 Pakete
+..............................Nach 3s gesendet: 3188618 Pakete
+..............................Nach 3s gesendet: 3186442 Pakete
+....................................................................................................Nach 10s gesendet: 10618290 Pakete
+..............................Nach 3s gesendet: 3186718 Pakete
+.............................Nach 3s gesendet: 3175720 Pakete
+.Assembling done
+Sending stopped - assembling finish expected
+.Sending stopped - assembling finish expected
+........Insgesamt 67090592 Pakete in 64003 ms gesendet
+......................Answers lost: 0, Answers read: 13419670, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13419670
+  Passed: 0
+  Valid: 13419670
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 5300]WARN: Zero Copy requires XDP. Disabling Zero Copy.
+
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3181440 Pakete
+..............................Nach 3s gesendet: 3182336 Pakete
+..............................Nach 3s gesendet: 3182976 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 10628224 Pakete
+..............................Nach 3s gesendet: 3188992 Pakete
+..............................Nach 3s gesendet: 3185674 Pakete
+..............................Nach 3s gesendet: 3191168 Pakete
+....................................................................................................Nach 10s gesendet: 10615050 Pakete
+..............................Nach 3s gesendet: 3185408 Pakete
+..............................Nach 3s gesendet: 3186954 Pakete
+..............................Nach 3s gesendet: 3186314 Pakete
+...................................................................................................Nach 10s gesendet: 10622248 Pakete
+..............................Nach 3s gesendet: 3179688 Pakete
+..............................Nach 3s gesendet: 3185576 Pakete
+.Assembling done
+Sending stopped - assembling finish expected
+.Sending stopped - assembling finish expected
+........Insgesamt 67090592 Pakete in 64003 ms gesendet
+......................Answers lost: 0, Answers read: 13423043, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13423043
+  Passed: 0
+  Valid: 13423043
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 5341]WARN: Zero Copy requires XDP. Disabling Zero Copy.
+
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3180160 Pakete
+..............................Nach 3s gesendet: 3184768 Pakete
+..............................Nach 3s gesendet: 3182976 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 10625536 Pakete
+..............................Nach 3s gesendet: 3185024 Pakete
+..............................Nach 3s gesendet: 3184266 Pakete
+..............................Nach 3s gesendet: 3186816 Pakete
+....................................................................................................Nach 10s gesendet: 10609930 Pakete
+..............................Nach 3s gesendet: 3185792 Pakete
+..............................Nach 3s gesendet: 3183242 Pakete
+..............................Nach 3s gesendet: 3187850 Pakete
+....................................................................................................Nach 10s gesendet: 10617138 Pakete
+.............................Nach 3s gesendet: 3184286 Pakete
+..............................Nach 3s gesendet: 3190312 Pakete
+.Assembling done
+Sending stopped - assembling finish expected
+.Sending stopped - assembling finish expected
+........Insgesamt 67088544 Pakete in 64003 ms gesendet
+......................Answers lost: 0, Answers read: 13411441, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13411441
+  Passed: 0
+  Valid: 13411441
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 5382]WARN: Zero Copy requires XDP. Disabling Zero Copy.
+
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3175936 Pakete
+..............................Nach 3s gesendet: 3186560 Pakete
+..............................Nach 3s gesendet: 3186816 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 10619136 Pakete
+..............................Nach 3s gesendet: 3193738 Pakete
+..............................Nach 3s gesendet: 3180928 Pakete
+..............................Nach 3s gesendet: 3183616 Pakete
+....................................................................................................Nach 10s gesendet: 10613258 Pakete
+..............................Nach 3s gesendet: 3191168 Pakete
+..............................Nach 3s gesendet: 3194762 Pakete
+..............................Nach 3s gesendet: 3182090 Pakete
+...................................................................................................Nach 10s gesendet: 10627634 Pakete
+..............................Nach 3s gesendet: 3187870 Pakete
+..............................Nach 3s gesendet: 3190824 Pakete
+.Assembling done
+Sending stopped - assembling finish expected
+.Sending stopped - assembling finish expected
+........Insgesamt 67090592 Pakete in 64003 ms gesendet
+......................Answers lost: 0, Answers read: 13417352, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13417352
+  Passed: 0
+  Valid: 13417352
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 5428]WARN: Zero Copy requires XDP. Disabling Zero Copy.
+
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           2000 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 3174528 Pakete
+..............................Nach 3s gesendet: 3186944 Pakete
+..............................Nach 3s gesendet: 3184384 Pakete
+......................................................................Spawning done
+..............................Nach 10s gesendet: 10629632 Pakete
+..............................Nach 3s gesendet: 3183498 Pakete
+..............................Nach 3s gesendet: 3187456 Pakete
+..............................Nach 3s gesendet: 3187328 Pakete
+....................................................................................................Nach 10s gesendet: 10604042 Pakete
+..............................Nach 3s gesendet: 3185920 Pakete
+..............................Nach 3s gesendet: 3190026 Pakete
+..............................Nach 3s gesendet: 3188106 Pakete
+...................................................................................................Nach 10s gesendet: 10631602 Pakete
+..............................Nach 3s gesendet: 3185822 Pakete
+..............................Nach 3s gesendet: 3188136 Pakete
+.Assembling done
+Sending stopped - assembling finish expected
+.Sending stopped - assembling finish expected
+........Insgesamt 67089568 Pakete in 64004 ms gesendet
+......................Answers lost: 0, Answers read: 13416385, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 13416385
+  Passed: 0
+  Valid: 13416385
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+>>> Szenario: ZMap
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 5468]Feb 06 12:12:18.224 [WARN] blocklist: ZMap is currently using the default blocklist located at /etc/zmap/blocklist.conf. By default, this blocklist excludes locally scoped networks (e.g. 10.0.0.0/8, 127.0.0.1/8, and 192.168.0.0/16). If you are trying to scan local networks, you can change the default blocklist by editing the default ZMap configuration at /etc/zmap/blocklist.conf. If you have modified the default blocklist, you can ignore this message.
+Feb 06 12:12:18.224 [WARN] zmap: ZMap is configured to use a relatively small number of source ports (fewer than 10x the number of probe packets per target ip/port), which limits the entropy that ZMap has available for  validating responses. We recommend that you use a larger port range.
+Feb 06 12:12:18.224 [INFO] dedup: Response deduplication method is full
+Feb 06 12:12:18.224 [INFO] filter: No output filter provided. ZMap will output all results, including duplicate and non-successful responses (e.g., RST and ICMP packets). If you want a filter similar to ZMap's default behavior, you can set an output filter similar to the following: --output-filter="success=1 && repeat=0".
+Feb 06 12:12:18.238 [INFO] recv: duplicate responses will be passed to the output module
+Feb 06 12:12:18.238 [INFO] recv: unsuccessful responses will be passed to the output module
+..................................................................................................................................................................................................................................................................................................................................................................................................................................... [Auto-Stop: Idle] [Post-Record] Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 5484]Feb 06 12:13:08.470 [WARN] blocklist: ZMap is currently using the default blocklist located at /etc/zmap/blocklist.conf. By default, this blocklist excludes locally scoped networks (e.g. 10.0.0.0/8, 127.0.0.1/8, and 192.168.0.0/16). If you are trying to scan local networks, you can change the default blocklist by editing the default ZMap configuration at /etc/zmap/blocklist.conf. If you have modified the default blocklist, you can ignore this message.
+Feb 06 12:13:08.470 [WARN] zmap: ZMap is configured to use a relatively small number of source ports (fewer than 10x the number of probe packets per target ip/port), which limits the entropy that ZMap has available for  validating responses. We recommend that you use a larger port range.
+Feb 06 12:13:08.470 [INFO] dedup: Response deduplication method is full
+Feb 06 12:13:08.470 [INFO] filter: No output filter provided. ZMap will output all results, including duplicate and non-successful responses (e.g., RST and ICMP packets). If you want a filter similar to ZMap's default behavior, you can set an output filter similar to the following: --output-filter="success=1 && repeat=0".
+Feb 06 12:13:08.484 [INFO] recv: duplicate responses will be passed to the output module
+Feb 06 12:13:08.484 [INFO] recv: unsuccessful responses will be passed to the output module
+................................................................................................................................................................................................................................................................................................................................................................................................................................... [Auto-Stop: Idle] [Post-Record] Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 5492]Feb 06 12:13:58.511 [WARN] blocklist: ZMap is currently using the default blocklist located at /etc/zmap/blocklist.conf. By default, this blocklist excludes locally scoped networks (e.g. 10.0.0.0/8, 127.0.0.1/8, and 192.168.0.0/16). If you are trying to scan local networks, you can change the default blocklist by editing the default ZMap configuration at /etc/zmap/blocklist.conf. If you have modified the default blocklist, you can ignore this message.
+Feb 06 12:13:58.511 [WARN] zmap: ZMap is configured to use a relatively small number of source ports (fewer than 10x the number of probe packets per target ip/port), which limits the entropy that ZMap has available for  validating responses. We recommend that you use a larger port range.
+Feb 06 12:13:58.511 [INFO] dedup: Response deduplication method is full
+Feb 06 12:13:58.511 [INFO] filter: No output filter provided. ZMap will output all results, including duplicate and non-successful responses (e.g., RST and ICMP packets). If you want a filter similar to ZMap's default behavior, you can set an output filter similar to the following: --output-filter="success=1 && repeat=0".
+Feb 06 12:13:58.523 [INFO] recv: duplicate responses will be passed to the output module
+Feb 06 12:13:58.523 [INFO] recv: unsuccessful responses will be passed to the output module
+.................................................................................................................................................................................................................................................................................................................................................................................................................................... [Auto-Stop: Idle] [Post-Record] Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 5500]Feb 06 12:14:48.677 [WARN] blocklist: ZMap is currently using the default blocklist located at /etc/zmap/blocklist.conf. By default, this blocklist excludes locally scoped networks (e.g. 10.0.0.0/8, 127.0.0.1/8, and 192.168.0.0/16). If you are trying to scan local networks, you can change the default blocklist by editing the default ZMap configuration at /etc/zmap/blocklist.conf. If you have modified the default blocklist, you can ignore this message.
+Feb 06 12:14:48.678 [WARN] zmap: ZMap is configured to use a relatively small number of source ports (fewer than 10x the number of probe packets per target ip/port), which limits the entropy that ZMap has available for  validating responses. We recommend that you use a larger port range.
+Feb 06 12:14:48.678 [INFO] dedup: Response deduplication method is full
+Feb 06 12:14:48.678 [INFO] filter: No output filter provided. ZMap will output all results, including duplicate and non-successful responses (e.g., RST and ICMP packets). If you want a filter similar to ZMap's default behavior, you can set an output filter similar to the following: --output-filter="success=1 && repeat=0".
+Feb 06 12:14:48.691 [INFO] recv: duplicate responses will be passed to the output module
+Feb 06 12:14:48.691 [INFO] recv: unsuccessful responses will be passed to the output module
+................................................................................................................................................................................................................................................................................................................................................................................................................................................ [Auto-Stop: Idle] [Post-Record] Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 5511]Feb 06 12:15:39.997 [WARN] blocklist: ZMap is currently using the default blocklist located at /etc/zmap/blocklist.conf. By default, this blocklist excludes locally scoped networks (e.g. 10.0.0.0/8, 127.0.0.1/8, and 192.168.0.0/16). If you are trying to scan local networks, you can change the default blocklist by editing the default ZMap configuration at /etc/zmap/blocklist.conf. If you have modified the default blocklist, you can ignore this message.
+Feb 06 12:15:39.997 [WARN] zmap: ZMap is configured to use a relatively small number of source ports (fewer than 10x the number of probe packets per target ip/port), which limits the entropy that ZMap has available for  validating responses. We recommend that you use a larger port range.
+Feb 06 12:15:39.997 [INFO] dedup: Response deduplication method is full
+Feb 06 12:15:39.997 [INFO] filter: No output filter provided. ZMap will output all results, including duplicate and non-successful responses (e.g., RST and ICMP packets). If you want a filter similar to ZMap's default behavior, you can set an output filter similar to the following: --output-filter="success=1 && repeat=0".
+Feb 06 12:15:40.008 [INFO] recv: duplicate responses will be passed to the output module
+Feb 06 12:15:40.008 [INFO] recv: unsuccessful responses will be passed to the output module
+...................................................................................................................................................................................................................................................................................................................................................................................................................................... [Auto-Stop: Idle] [Post-Record] Done.
+
+>>> Szenario: Masscan
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 5520]Starting masscan 1.3.9-integration (http://bit.ly/14GZzcT) at 2026-02-06 11:16:30 GMT
+Initiating SYN Stealth Scan
+Scanning 67108864 hosts [1 port/host]
+........rate:1031.77-kpps,  8.35% done,   0:01:12 remaining, found=1119639      ........rate:1029.78-kpps, 10.27% done,   0:01:10 remaining, found=1377268      ........rate:1027.77-kpps, 12.19% done,   0:01:08 remaining, found=1634410      ........rate:1009.74-kpps, 14.08% done,   0:01:07 remaining, found=1889046      ........rate:1030.98-kpps, 15.95% done,   0:01:06 remaining, found=2140301      ........rate:1033.20-kpps, 17.87% done,   0:01:04 remaining, found=2398412      ........rate:1007.40-kpps, 21.68% done,   0:01:01 remaining, found=2909034      ........rate:1029.22-kpps, 23.59% done,   0:01:00 remaining, found=3165695      ........rate:1025.75-kpps, 25.50% done,   0:00:58 remaining, found=3423413      ........rate:1015.17-kpps, 29.26% done,   0:00:56 remaining, found=3927970      ........rate:1025.46-kpps, 31.17% done,   0:00:54 remaining, found=4184520      ........rate:1015.46-kpps, 36.72% done,   0:00:50 remaining, found=4930424      ........rate:1025.23-kpps, 40.50% done,   0:00:47 remaining, found=5435977      ........rate:1082.34-kpps, 42.38% done,   0:00:45 remaining, found=5688539      ........rate:1004.46-kpps, 44.28% done,   0:00:44 remaining, found=5943125      ........rate:1028.20-kpps, 47.12% done,   0:00:41 remaining, found=6325667      ........rate:1031.33-kpps, 50.84% done,   0:00:39 remaining, found=6824448      ........rate:1027.70-kpps, 56.39% done,   0:00:35 remaining, found=7569877      ........rate:1021.77-kpps, 58.28% done,   0:00:33 remaining, found=7822475      ........rate:1023.61-kpps, 60.11% done,   0:00:31 remaining, found=8068625      ........rate:1021.84-kpps, 62.01% done,   0:00:30 remaining, found=8323582      ........rate:1021.52-kpps, 63.91% done,   0:00:28 remaining, found=8579060      ........rate:1022.36-kpps, 65.82% done,   0:00:27 remaining, found=8834511      ........rate:1022.14-kpps, 67.72% done,   0:00:25 remaining, found=9090091      ........rate:1022.66-kpps, 69.62% done,   0:00:23 remaining, found=9345100      ........rate:1001.27-kpps, 71.50% done,   0:00:22 remaining, found=9597627      ........rate:1022.32-kpps, 73.41% done,   0:00:21 remaining, found=9854074      ........rate:1018.47-kpps, 75.27% done,   0:00:19 remaining, found=10103180     ........rate:1007.53-kpps, 77.10% done,   0:00:18 remaining, found=10348772     .......rate:1016.31-kpps, 78.03% done,   0:00:17 remaining, found=10474702      ........rate:1024.02-kpps, 78.99% done,   0:00:16 remaining, found=10602377     .......rate:1023.56-kpps, 79.94% done,   0:00:16 remaining, found=10730544      ........rate:1031.39-kpps, 80.90% done,   0:00:15 remaining, found=10859447     .......rate:1040.83-kpps, 81.87% done,   0:00:14 remaining, found=10984685      ........rate:963.89-kpps, 82.77% done,   0:00:13 remaining, found=11106093      ........rate:964.31-kpps, 84.62% done,   0:00:12 remaining, found=11354253      .......rate:1011.88-kpps, 85.56% done,   0:00:11 remaining, found=11482568      ........rate:1026.48-kpps, 86.52% done,   0:00:10 remaining, found=11611142     .......rate:1024.55-kpps, 87.48% done,   0:00:09 remaining, found=11738968      ........rate:1025.78-kpps, 88.43% done,   0:00:09 remaining, found=11867169     .......rate:1025.21-kpps, 89.39% done,   0:00:08 remaining, found=11995189      ........rate:1023.42-kpps, 90.34% done,   0:00:07 remaining, found=12123218     .......rate:1024.46-kpps, 91.29% done,   0:00:06 remaining, found=12251099      ........rate:1025.99-kpps, 92.25% done,   0:00:06 remaining, found=12379632     .......rate:1026.25-kpps, 93.20% done,   0:00:05 remaining, found=12507621      ........rate:1023.71-kpps, 94.15% done,   0:00:04 remaining, found=12635502     .......rate:1028.15-kpps, 95.11% done,   0:00:03 remaining, found=12763157      ........rate:1024.11-kpps, 96.06% done,   0:00:03 remaining, found=12891141     .......rate:1026.45-kpps, 97.02% done,   0:00:02 remaining, found=13018966      ........rate:1023.35-kpps, 97.97% done,   0:00:01 remaining, found=13147143     .......rate:1025.66-kpps, 98.92% done,   0:00:00 remaining, found=13275850      ........rate:1022.03-kpps, 99.87% done,   0:00:00 remaining, found=13403114     .. [Auto-Stop: Idle] [Post-Record] Done.ng 7-secs, found=13419598             
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 5531]Starting masscan 1.3.9-integration (http://bit.ly/14GZzcT) at 2026-02-06 11:18:04 GMT
+Initiating SYN Stealth Scan
+Scanning 67108864 hosts [1 port/host]
+........rate:1025.55-kpps,  8.41% done,   0:01:11 remaining, found=1128843      ........rate:1015.79-kpps, 10.29% done,   0:01:10 remaining, found=1381092      ........rate:1028.76-kpps, 12.20% done,   0:01:09 remaining, found=1638254      ........rate:1028.73-kpps, 14.12% done,   0:01:07 remaining, found=1895135      ........rate:1020.60-kpps, 16.01% done,   0:01:06 remaining, found=2148109      ........rate:1026.52-kpps, 17.90% done,   0:01:04 remaining, found=2401998      ........rate:1032.69-kpps, 19.81% done,   0:01:03 remaining, found=2659615      ........rate:1031.98-kpps, 21.73% done,   0:01:01 remaining, found=2916955      ........rate:1029.61-kpps, 23.65% done,   0:00:59 remaining, found=3174659      ........rate:1021.99-kpps, 25.55% done,   0:00:58 remaining, found=3429516      ........rate:1018.71-kpps, 27.46% done,   0:00:56 remaining, found=3686066      ........rate:1028.78-kpps, 29.37% done,   0:00:55 remaining, found=3942967      ........rate:1011.66-kpps, 31.24% done,   0:00:54 remaining, found=4194991      ........rate:1015.18-kpps, 33.13% done,   0:00:52 remaining, found=4449337      ........rate:1023.27-kpps, 35.02% done,   0:00:51 remaining, found=4702371      ........rate:1028.00-kpps, 36.93% done,   0:00:50 remaining, found=4957825      ........rate:1027.96-kpps, 38.84% done,   0:00:48 remaining, found=5215870      ........rate:1024.80-kpps, 40.72% done,   0:00:46 remaining, found=5467208      ........rate:1023.87-kpps, 42.62% done,   0:00:45 remaining, found=5721665      ........rate:1032.14-kpps, 46.43% done,   0:00:42 remaining, found=6233730      ........rate:1011.06-kpps, 50.19% done,   0:00:39 remaining, found=6738477      ........rate:1030.45-kpps, 52.11% done,   0:00:37 remaining, found=6995758      ........rate:1029.07-kpps, 54.02% done,   0:00:36 remaining, found=7252660      ........rate:1001.93-kpps, 55.91% done,   0:00:34 remaining, found=7506443      ........rate:1030.87-kpps, 57.82% done,   0:00:33 remaining, found=7762030      ........rate:1002.47-kpps, 59.65% done,   0:00:32 remaining, found=8007209      ........rate:1030.46-kpps, 61.57% done,   0:00:30 remaining, found=8264963      ........rate:1030.97-kpps, 63.49% done,   0:00:28 remaining, found=8522862      ........rate:1025.49-kpps, 65.40% done,   0:00:27 remaining, found=8779497      ........rate:1028.19-kpps, 67.23% done,   0:00:25 remaining, found=9024251      ........rate:1012.90-kpps, 70.04% done,   0:00:23 remaining, found=9402280      ........rate:1036.22-kpps, 71.97% done,   0:00:22 remaining, found=9661804      ........rate:1028.29-kpps, 73.87% done,   0:00:20 remaining, found=9916958      .......rate:1033.30-kpps, 74.84% done,   0:00:19 remaining, found=10046454      ........rate:996.39-kpps, 75.75% done,   0:00:19 remaining, found=10169879      .......rate:1088.21-kpps, 76.76% done,   0:00:18 remaining, found=10306566      ........rate:1086.24-kpps, 77.78% done,   0:00:17 remaining, found=10442056     .......rate:1088.42-kpps, 78.79% done,   0:00:16 remaining, found=10577957      ........rate:1090.56-kpps, 79.80% done,   0:00:15 remaining, found=10713674     .......rate:1090.97-kpps, 80.82% done,   0:00:14 remaining, found=10849759      ........rate:1092.77-kpps, 81.83% done,   0:00:13 remaining, found=10985990     .......rate:1124.30-kpps, 82.88% done,   0:00:12 remaining, found=11126508      ........rate:1093.70-kpps, 83.90% done,   0:00:11 remaining, found=11262616     .......rate:1091.36-kpps, 84.92% done,   0:00:11 remaining, found=11398760      ........rate:1092.27-kpps, 85.93% done,   0:00:10 remaining, found=11535081     .......rate:1089.01-kpps, 86.95% done,   0:00:09 remaining, found=11671273      ........rate:1090.43-kpps, 87.96% done,   0:00:08 remaining, found=11807693     .......rate:1088.60-kpps, 88.97% done,   0:00:08 remaining, found=11943786      ........rate:1090.75-kpps, 89.99% done,   0:00:07 remaining, found=12080112     .......rate:1092.42-kpps, 91.00% done,   0:00:06 remaining, found=12216056      ........rate:1091.73-kpps, 92.02% done,   0:00:05 remaining, found=12352600     .......rate:1092.63-kpps, 93.04% done,   0:00:05 remaining, found=12488830      ........rate:1090.78-kpps, 94.05% done,   0:00:04 remaining, found=12624749     .......rate:1092.69-kpps, 95.06% done,   0:00:03 remaining, found=12761059      ........rate:1088.80-kpps, 96.08% done,   0:00:02 remaining, found=12896784     .......rate:1090.11-kpps, 97.09% done,   0:00:02 remaining, found=13032863      ........rate:1087.84-kpps, 98.10% done,   0:00:01 remaining, found=13168859     .......rate:1089.38-kpps, 99.12% done,   0:00:00 remaining, found=13304569      . [Auto-Stop: Idle] [Post-Record] Done.ing 6-secs, found=13423491            
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 5541]Starting masscan 1.3.9-integration (http://bit.ly/14GZzcT) at 2026-02-06 11:19:36 GMT
+Initiating SYN Stealth Scan
+Scanning 67108864 hosts [1 port/host]
+........rate:1024.97-kpps,  8.31% done,   0:01:12 remaining, found=1115511      ........rate:1025.54-kpps, 10.20% done,   0:01:11 remaining, found=1370045      ........rate:1028.09-kpps, 12.13% done,   0:01:09 remaining, found=1627646      ........rate:1017.71-kpps, 14.03% done,   0:01:07 remaining, found=1882850      ........rate:1021.30-kpps, 15.93% done,   0:01:06 remaining, found=2137506      ........rate:1027.86-kpps, 17.82% done,   0:01:04 remaining, found=2390453      ........rate:1022.68-kpps, 19.69% done,   0:01:03 remaining, found=2641998      ........rate:1029.78-kpps, 21.60% done,   0:01:02 remaining, found=2898182      ........rate:1003.10-kpps, 23.42% done,   0:01:01 remaining, found=3142197      ........rate:1014.78-kpps, 25.28% done,   0:01:00 remaining, found=3391931      ........rate:1018.19-kpps, 27.18% done,   0:00:58 remaining, found=3647330      ........rate:1028.75-kpps, 29.06% done,   0:00:57 remaining, found=3900109      ........rate:1028.24-kpps, 30.98% done,   0:00:54 remaining, found=4157107      ........rate:1029.91-kpps, 32.90% done,   0:00:52 remaining, found=4413596      ........rate:1027.28-kpps, 34.81% done,   0:00:51 remaining, found=4670924      ........rate:1014.43-kpps, 36.70% done,   0:00:49 remaining, found=4924956      ........rate:1030.17-kpps, 38.61% done,   0:00:48 remaining, found=5181836      ........rate:1021.82-kpps, 40.51% done,   0:00:46 remaining, found=5436069      ........rate:1024.55-kpps, 42.40% done,   0:00:45 remaining, found=5687757      ........rate:1077.66-kpps, 44.33% done,   0:00:43 remaining, found=5947082      ........rate:1031.77-kpps, 46.23% done,   0:00:42 remaining, found=6202695      ........rate:1025.44-kpps, 48.12% done,   0:00:40 remaining, found=6457795      ........rate:1026.31-kpps, 50.03% done,   0:00:39 remaining, found=6713698      ........rate:1029.00-kpps, 55.66% done,   0:00:35 remaining, found=7469478      ........rate:1026.45-kpps, 57.57% done,   0:00:33 remaining, found=7725561      ........rate:1023.54-kpps, 59.46% done,   0:00:32 remaining, found=7980912      ........rate:1007.02-kpps, 61.35% done,   0:00:30 remaining, found=8233490      ........rate:1009.77-kpps, 63.25% done,   0:00:29 remaining, found=8488747      ........rate:1021.80-kpps, 65.16% done,   0:00:27 remaining, found=8744543      ........rate:1021.60-kpps, 67.06% done,   0:00:26 remaining, found=8999976      ........rate:1023.16-kpps, 68.97% done,   0:00:24 remaining, found=9256174      ........rate:1080.78-kpps, 70.85% done,   0:00:23 remaining, found=9507993      ........rate:1085.12-kpps, 72.86% done,   0:00:21 remaining, found=9778379      ........rate:1085.86-kpps, 74.88% done,   0:00:19 remaining, found=10049559     .......rate:1084.96-kpps, 75.89% done,   0:00:18 remaining, found=10185043      ........rate:1089.98-kpps, 76.91% done,   0:00:17 remaining, found=10321265     .......rate:1088.34-kpps, 77.92% done,   0:00:16 remaining, found=10457527      ........rate:1088.23-kpps, 78.93% done,   0:00:15 remaining, found=10593501     .......rate:1088.48-kpps, 79.94% done,   0:00:14 remaining, found=10729208      .......rate:1087.17-kpps, 80.95% done,   0:00:14 remaining, found=10865143      ........rate:1090.79-kpps, 81.97% done,   0:00:13 remaining, found=11000543     .......rate:1089.15-kpps, 82.98% done,   0:00:12 remaining, found=11137291      ........rate:1089.32-kpps, 83.99% done,   0:00:11 remaining, found=11272946     .......rate:1118.95-kpps, 85.04% done,   0:00:11 remaining, found=11413003      ........rate:1089.52-kpps, 86.05% done,   0:00:10 remaining, found=11549310     .......rate:1086.56-kpps, 87.06% done,   0:00:09 remaining, found=11684930      ........rate:1089.45-kpps, 88.08% done,   0:00:08 remaining, found=11820773     .......rate:1086.56-kpps, 89.09% done,   0:00:08 remaining, found=11956230      ........rate:1089.09-kpps, 90.11% done,   0:00:07 remaining, found=12092281     .......rate:1087.40-kpps, 91.12% done,   0:00:06 remaining, found=12227940      ........rate:1087.32-kpps, 92.13% done,   0:00:05 remaining, found=12363312     .......rate:1089.34-kpps, 93.14% done,   0:00:05 remaining, found=12499366      ........rate:1087.86-kpps, 94.15% done,   0:00:04 remaining, found=12635404     .......rate:1090.66-kpps, 95.16% done,   0:00:03 remaining, found=12771420      ........rate:1087.91-kpps, 96.18% done,   0:00:02 remaining, found=12907642     .......rate:1090.26-kpps, 97.19% done,   0:00:02 remaining, found=13043717      ........rate:1087.64-kpps, 98.20% done,   0:00:01 remaining, found=13179493     .......rate:1088.25-kpps, 99.22% done,   0:00:00 remaining, found=13315210      ... [Auto-Stop: Idle] [Post-Record] Done. 6-secs, found=13419943             
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 5551]Starting masscan 1.3.9-integration (http://bit.ly/14GZzcT) at 2026-02-06 11:21:08 GMT
+Initiating SYN Stealth Scan
+Scanning 67108864 hosts [1 port/host]
+........rate:1083.64-kpps,  8.89% done,   0:01:07 remaining, found=1192740      ........rate:1084.49-kpps, 10.91% done,   0:01:06 remaining, found=1463937      ........rate:1083.81-kpps, 12.93% done,   0:01:04 remaining, found=1734534      ........rate:1084.14-kpps, 14.95% done,   0:01:03 remaining, found=2005853      ........rate:1085.26-kpps, 16.97% done,   0:01:01 remaining, found=2277099      ........rate:1087.03-kpps, 18.99% done,   0:01:00 remaining, found=2548240      ........rate:1084.51-kpps, 21.01% done,   0:00:58 remaining, found=2818837      ........rate:1088.75-kpps, 23.03% done,   0:00:57 remaining, found=3089955      ........rate:1088.14-kpps, 25.05% done,   0:00:55 remaining, found=3360711      ........rate:1087.04-kpps, 27.08% done,   0:00:54 remaining, found=3631954      ........rate:1088.50-kpps, 29.10% done,   0:00:52 remaining, found=3903601      ........rate:1088.54-kpps, 31.12% done,   0:00:51 remaining, found=4175857      ........rate:1086.20-kpps, 33.15% done,   0:00:49 remaining, found=4446568      ........rate:1087.44-kpps, 35.17% done,   0:00:48 remaining, found=4718182      ........rate:1088.02-kpps, 37.20% done,   0:00:46 remaining, found=4990020      ........rate:1087.01-kpps, 39.22% done,   0:00:45 remaining, found=5261660      ........rate:1085.76-kpps, 41.24% done,   0:00:43 remaining, found=5533927      ........rate:1089.88-kpps, 43.31% done,   0:00:41 remaining, found=5804574      ........rate:1088.04-kpps, 45.34% done,   0:00:40 remaining, found=6076926      ........rate:1089.30-kpps, 47.36% done,   0:00:38 remaining, found=6349189      ........rate:1091.04-kpps, 49.39% done,   0:00:37 remaining, found=6621157      ........rate:1089.13-kpps, 51.41% done,   0:00:36 remaining, found=6892472      ........rate:1087.20-kpps, 53.43% done,   0:00:34 remaining, found=7163926      ........rate:1089.14-kpps, 55.46% done,   0:00:32 remaining, found=7435823      ........rate:1088.07-kpps, 57.48% done,   0:00:31 remaining, found=7707136      ........rate:1085.56-kpps, 59.50% done,   0:00:30 remaining, found=7978908      ........rate:1088.92-kpps, 62.54% done,   0:00:27 remaining, found=8386703      ........rate:1088.75-kpps, 64.56% done,   0:00:26 remaining, found=8658575      ........rate:1088.81-kpps, 66.58% done,   0:00:24 remaining, found=8930224      ........rate:1087.15-kpps, 68.60% done,   0:00:23 remaining, found=9202173      ........rate:1086.88-kpps, 70.62% done,   0:00:21 remaining, found=9473870      ........rate:1086.25-kpps, 72.65% done,   0:00:20 remaining, found=9744746      ........rate:1085.49-kpps, 74.67% done,   0:00:18 remaining, found=10015708     .......rate:1089.32-kpps, 75.68% done,   0:00:18 remaining, found=10151913      ........rate:1085.58-kpps, 76.69% done,   0:00:17 remaining, found=10286995     .......rate:1088.00-kpps, 77.70% done,   0:00:16 remaining, found=10422448      ........rate:1085.71-kpps, 78.72% done,   0:00:15 remaining, found=10558334     .......rate:1087.77-kpps, 79.73% done,   0:00:15 remaining, found=10694173      ........rate:1081.88-kpps, 80.74% done,   0:00:14 remaining, found=10829290     .......rate:1086.82-kpps, 81.75% done,   0:00:13 remaining, found=10965097      ........rate:1084.73-kpps, 82.76% done,   0:00:12 remaining, found=11100699     .......rate:1085.26-kpps, 83.77% done,   0:00:12 remaining, found=11236254      ........rate:1142.16-kpps, 84.80% done,   0:00:11 remaining, found=11373966     .......rate:1098.93-kpps, 85.82% done,   0:00:10 remaining, found=11511838      ........rate:1085.37-kpps, 86.83% done,   0:00:09 remaining, found=11647501     .......rate:1083.57-kpps, 87.84% done,   0:00:08 remaining, found=11782682      ........rate:1085.37-kpps, 88.85% done,   0:00:08 remaining, found=11918406     .......rate:1083.38-kpps, 89.85% done,   0:00:07 remaining, found=12054179      ........rate:1087.21-kpps, 90.87% done,   0:00:06 remaining, found=12189991     .......rate:1083.96-kpps, 91.87% done,   0:00:06 remaining, found=12325554      ........rate:1087.70-kpps, 92.88% done,   0:00:05 remaining, found=12462093     .......rate:1085.69-kpps, 93.90% done,   0:00:04 remaining, found=12597357      ........rate:1086.51-kpps, 94.91% done,   0:00:03 remaining, found=12733378     .......rate:1087.95-kpps, 95.92% done,   0:00:03 remaining, found=12868587      ........rate:1086.71-kpps, 96.93% done,   0:00:02 remaining, found=13004544     .......rate:1087.90-kpps, 97.94% done,   0:00:01 remaining, found=13139808      ........rate:1085.53-kpps, 98.95% done,   0:00:00 remaining, found=13275379     .......rate:1087.82-kpps, 99.96% done,   0:00:00 remaining, found=13411186      .. [Auto-Stop: Idle] [Post-Record] Done.g 6-secs, found=13416151             
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 5560]Starting masscan 1.3.9-integration (http://bit.ly/14GZzcT) at 2026-02-06 11:22:36 GMT
+Initiating SYN Stealth Scan
+Scanning 67108864 hosts [1 port/host]
+........rate:1089.23-kpps,  8.91% done,   0:01:07 remaining, found=1195073      ........rate:1088.06-kpps, 10.94% done,   0:01:05 remaining, found=1466268      ........rate:1088.47-kpps, 12.97% done,   0:01:04 remaining, found=1738621      ........rate:1086.05-kpps, 14.99% done,   0:01:02 remaining, found=2010528      ........rate:1086.92-kpps, 17.02% done,   0:01:01 remaining, found=2281714      ........rate:1088.99-kpps, 19.04% done,   0:00:59 remaining, found=2553192      ........rate:1091.46-kpps, 21.07% done,   0:00:58 remaining, found=2824692      ........rate:1091.54-kpps, 23.10% done,   0:00:56 remaining, found=3097091      ........rate:1090.79-kpps, 25.13% done,   0:00:55 remaining, found=3369420      ........rate:1089.37-kpps, 27.15% done,   0:00:53 remaining, found=3641101      ........rate:1088.89-kpps, 29.17% done,   0:00:52 remaining, found=3913097      ........rate:1088.16-kpps, 31.20% done,   0:00:50 remaining, found=4184646      ........rate:1087.81-kpps, 33.22% done,   0:00:49 remaining, found=4456215      ........rate:1086.64-kpps, 35.25% done,   0:00:47 remaining, found=4728087      ........rate:1085.80-kpps, 37.27% done,   0:00:46 remaining, found=5000243      ........rate:1085.95-kpps, 39.29% done,   0:00:45 remaining, found=5271493      ........rate:1084.76-kpps, 41.31% done,   0:00:43 remaining, found=5542917      ........rate:1100.41-kpps, 43.38% done,   0:00:41 remaining, found=5818347      ........rate:1086.49-kpps, 45.40% done,   0:00:40 remaining, found=6089684      ........rate:1086.89-kpps, 47.42% done,   0:00:38 remaining, found=6361047      ........rate:1090.51-kpps, 49.45% done,   0:00:37 remaining, found=6632349      ........rate:1089.88-kpps, 51.47% done,   0:00:35 remaining, found=6903968      ........rate:1088.93-kpps, 53.49% done,   0:00:34 remaining, found=7176292      ........rate:1085.90-kpps, 55.52% done,   0:00:32 remaining, found=7447104      ........rate:1087.83-kpps, 57.54% done,   0:00:31 remaining, found=7718705      ........rate:1086.91-kpps, 59.56% done,   0:00:29 remaining, found=7989921      ........rate:1085.21-kpps, 61.58% done,   0:00:28 remaining, found=8261174      ........rate:1086.95-kpps, 63.61% done,   0:00:26 remaining, found=8533222      ........rate:1086.49-kpps, 65.63% done,   0:00:25 remaining, found=8804612      ........rate:1085.64-kpps, 67.65% done,   0:00:23 remaining, found=9076111      ........rate:1088.47-kpps, 70.69% done,   0:00:21 remaining, found=9483610      ........rate:1086.76-kpps, 72.72% done,   0:00:20 remaining, found=9755518      ........rate:1086.64-kpps, 74.74% done,   0:00:18 remaining, found=10027007     .......rate:1089.41-kpps, 75.75% done,   0:00:17 remaining, found=10162630      ........rate:1088.65-kpps, 76.76% done,   0:00:17 remaining, found=10298664     .......rate:1089.81-kpps, 77.78% done,   0:00:16 remaining, found=10434518      ........rate:1087.59-kpps, 78.79% done,   0:00:15 remaining, found=10570894     .......rate:1091.03-kpps, 79.81% done,   0:00:14 remaining, found=10707170      ........rate:1087.85-kpps, 80.81% done,   0:00:14 remaining, found=10843589     .......rate:1089.98-kpps, 81.83% done,   0:00:13 remaining, found=10979866      ........rate:1087.75-kpps, 82.85% done,   0:00:12 remaining, found=11115807     .......rate:1090.14-kpps, 83.86% done,   0:00:11 remaining, found=11252075      ........rate:1114.92-kpps, 84.88% done,   0:00:11 remaining, found=11388280     .......rate:1118.94-kpps, 85.92% done,   0:00:10 remaining, found=11528264      ........rate:1091.36-kpps, 86.94% done,   0:00:09 remaining, found=11664100     .......rate:1088.43-kpps, 87.95% done,   0:00:08 remaining, found=11800474      ........rate:1092.55-kpps, 88.96% done,   0:00:08 remaining, found=11936248     .......rate:1089.64-kpps, 89.98% done,   0:00:07 remaining, found=12072581      ........rate:1091.04-kpps, 90.99% done,   0:00:06 remaining, found=12209487     .......rate:1088.85-kpps, 92.00% done,   0:00:05 remaining, found=12345615      ........rate:1091.86-kpps, 93.02% done,   0:00:05 remaining, found=12481773     .......rate:1082.95-kpps, 94.03% done,   0:00:04 remaining, found=12618170      ........rate:1089.80-kpps, 95.05% done,   0:00:03 remaining, found=12754519     .......rate:1089.62-kpps, 96.06% done,   0:00:02 remaining, found=12890554      ........rate:1089.94-kpps, 97.07% done,   0:00:02 remaining, found=13026672     .......rate:1089.93-kpps, 98.09% done,   0:00:01 remaining, found=13162857      ........rate:1087.33-kpps, 99.10% done,   0:00:00 remaining, found=13298873     . [Auto-Stop: Idle] [Post-Record] Done.ng 6-secs, found=13419299              
+
+Fertig. Daten in: ./messdaten/20260206_114816_Benchmark_Suite
+
+lennard@lennard-MS-7D18:~/Bachelor$ sudo chown -R $USER:$USER messdaten/
+
+lennard@lennard-MS-7D18:~/Bachelor$ python3 validate_responses.py messdaten/20260206_114816_Benchmark_Suite
+Validiere Ergebnisse in: messdaten/20260206_114816_Benchmark_Suite ...
+DEBUG: Gefunden Masscan File messdaten/20260206_114816_Benchmark_Suite/Masscan/run_2/outpput_results.txt
+DEBUG: Gefunden Masscan File messdaten/20260206_114816_Benchmark_Suite/Masscan/run_4/outpput_results.txt
+DEBUG: Gefunden Masscan File messdaten/20260206_114816_Benchmark_Suite/Masscan/run_3/outpput_results.txt
+DEBUG: Gefunden Masscan File messdaten/20260206_114816_Benchmark_Suite/Masscan/run_1/outpput_results.txt
+DEBUG: Gefunden Masscan File messdaten/20260206_114816_Benchmark_Suite/Masscan/run_5/outpput_results.txt
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Copy)/run_2/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Copy)/run_4/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Copy)/run_3/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Copy)/run_1/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Copy)/run_5/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Generic)/run_2/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Generic)/run_4/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Generic)/run_3/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Generic)/run_1/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Generic)/run_5/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (AF_PACKET, 2 Threads)/run_2/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (AF_PACKET, 2 Threads)/run_4/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (AF_PACKET, 2 Threads)/run_3/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (AF_PACKET, 2 Threads)/run_1/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (AF_PACKET, 2 Threads)/run_5/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Zero-Copy)/run_2/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Zero-Copy)/run_4/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Zero-Copy)/run_3/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Zero-Copy)/run_1/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_114816_Benchmark_Suite/SYN-Rust (XDP, Zero-Copy)/run_5/scan_output.csv
+
+--- Detaillierte Validierung pro Run ---
+                        Scanner   Run                File     Hits
+                        Masscan run_1 outpput_results.txt 13419528
+                        Masscan run_2 outpput_results.txt 13423381
+                        Masscan run_3 outpput_results.txt 13419857
+                        Masscan run_4 outpput_results.txt 13416128
+                        Masscan run_5 outpput_results.txt 13419191
+SYN-Rust (AF_PACKET, 2 Threads) run_1     scan_output.csv 13419670
+SYN-Rust (AF_PACKET, 2 Threads) run_2     scan_output.csv 13423043
+SYN-Rust (AF_PACKET, 2 Threads) run_3     scan_output.csv 13411441
+SYN-Rust (AF_PACKET, 2 Threads) run_4     scan_output.csv 13417352
+SYN-Rust (AF_PACKET, 2 Threads) run_5     scan_output.csv 13416385
+           SYN-Rust (XDP, Copy) run_1     scan_output.csv 13416355
+           SYN-Rust (XDP, Copy) run_2     scan_output.csv 13414515
+           SYN-Rust (XDP, Copy) run_3     scan_output.csv 13420700
+           SYN-Rust (XDP, Copy) run_4     scan_output.csv 13422273
+           SYN-Rust (XDP, Copy) run_5     scan_output.csv 13415357
+        SYN-Rust (XDP, Generic) run_1     scan_output.csv 13418598
+        SYN-Rust (XDP, Generic) run_2     scan_output.csv 13420485
+        SYN-Rust (XDP, Generic) run_3     scan_output.csv 13417519
+        SYN-Rust (XDP, Generic) run_4     scan_output.csv 13416348
+        SYN-Rust (XDP, Generic) run_5     scan_output.csv 13421669
+      SYN-Rust (XDP, Zero-Copy) run_1     scan_output.csv 13421770
+      SYN-Rust (XDP, Zero-Copy) run_2     scan_output.csv 13415096
+      SYN-Rust (XDP, Zero-Copy) run_3     scan_output.csv 13418156
+      SYN-Rust (XDP, Zero-Copy) run_4     scan_output.csv 13413597
+      SYN-Rust (XDP, Zero-Copy) run_5     scan_output.csv 13418098
+                           ZMap run_1  output_results.csv 10066090
+                           ZMap run_2  output_results.csv 10066436
+                           ZMap run_3  output_results.csv 10069650
+                           ZMap run_4  output_results.csv 10060268
+                           ZMap run_5  output_results.csv 10069037
+
+--- Zusammenfassung (Durchschnittliche Treffer) ---
+                        Scanner     Ø Hits
+                        Masscan 13419617.0
+SYN-Rust (AF_PACKET, 2 Threads) 13417578.2
+           SYN-Rust (XDP, Copy) 13417840.0
+        SYN-Rust (XDP, Generic) 13418923.8
+      SYN-Rust (XDP, Zero-Copy) 13417343.4
+                           ZMap 10066296.2
+
+Validierungs-Tabelle gespeichert in: messdaten/20260206_114816_Benchmark_Suite/validierung_hits.csv
+
+
+lennard@lennard-MS-7D18:~/Bachelor$ python3 plot_benchmark_suite.py ./messdaten/20260206_114816_Benchmark_Suite
+Lese Daten aus: ./messdaten/20260206_114816_Benchmark_Suite
+Analysiere Scanner: Masscan ...
+Analysiere Scanner: SYN-Rust (AF_PACKET, 2 Threads) ...
+Analysiere Scanner: SYN-Rust (XDP, Copy) ...
+Analysiere Scanner: SYN-Rust (XDP, Generic) ...
+Analysiere Scanner: SYN-Rust (XDP, Zero-Copy) ...
+Analysiere Scanner: ZMap ...
+Erstelle Grafiken...
+Generiere kombinierte Tabelle...
+Ethtool Ergebnisse gespeichert in: ./messdaten/20260206_114816_Benchmark_Suite/ethtool_ergebnisse.csv
+
+--- Summary ---
+                        Scanner  Effizienz [PPS/CPU(%)] (aktiv)  PPS (aktiv)  CPU Netto [%] (aktiv)  RAM Netto [MB] (aktiv)  CPU Netto [%] (gesamt)  RAM Netto [MB] (gesamt)
+      SYN-Rust (XDP, Zero-Copy)                   258512.512134 1.477251e+06               5.716362              190.783998                4.671159               160.690123
+           SYN-Rust (XDP, Copy)                   133988.987599 1.231366e+06               9.191915              237.678722                7.715861               203.687832
+        SYN-Rust (XDP, Generic)                   118851.785763 1.230992e+06              10.357597              263.779018                8.660226               231.814865
+                        Masscan                    77716.646005 1.050925e+06              13.523506               42.567438               12.246042                42.048381
+SYN-Rust (AF_PACKET, 2 Threads)                    74688.548482 1.060264e+06              14.196079              265.569188               12.134511               240.846009
+                           ZMap                    64018.195636 1.350602e+06              21.096666               13.013699               17.808223                12.373163
+
+--- Ethtool Stats ---
+                        Scanner  Eth Txs (HW)  Eth Txs (SW)  Diff TX [%]  Eth Rxs (HW)  Eth Rxs (SW)  Diff RX [%]
+      SYN-Rust (XDP, Zero-Copy)    67091250.8  67043624.954    -0.070987    13417343.8  13407760.296    -0.071434
+           SYN-Rust (XDP, Copy)    67087755.6  67086050.348    -0.002542    13417840.0  13417632.952    -0.001544
+        SYN-Rust (XDP, Generic)    67087962.0  67093844.900     0.008769    13418923.8  13420174.470     0.009320
+                        Masscan    80528560.8  80530569.544     0.002494    13422329.0  13422683.390     0.002641
+SYN-Rust (AF_PACKET, 2 Threads)    67089979.6  67088711.388    -0.001890    13417578.2  13417286.770    -0.002171
+                           ZMap    50331648.0  50331303.538    -0.000684    10066295.2  10066190.032    -0.001045
+
+Fertig. Ergebnisse in ./messdaten/20260206_114816_Benchmark_Suite
+
+
+========================================================================================================================
+Test Szenario 3
+========================================================================================================================
+
+lennard@lennard-MS-7D18:~$ cd Bachelor/
+lennard@lennard-MS-7D18:~/Bachelor$ sudo ethtool -G enp6s0 tx 4096 rx 4096
+[sudo] password for lennard: 
+lennard@lennard-MS-7D18:~/Bachelor$ sudo python3 benchmark_suite_3.py 
+=== Benchmark Suite Gestartet ===
+Output: ./messdaten/20260206_112824_Benchmark_Suite
+Interface: enp6s0
+=================================
+
+
+>>> Szenario: SYN-Rust (XDP, Generic)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 3491]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1550016 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+....................Spawning for dst_port number 1
+..........Nach 3s gesendet: 1497985 Pakete
+......................................................................Spawning done
+.Assembling done
+Sending stopped - assembling finish expected
+........Insgesamt 8196034 Pakete in 17002 ms gesendet
+......................Answers lost: 0, Answers read: 1639666, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1639670
+  Passed: 4
+  Valid: 1639666
+  RST sent: 1639666
+Scanjob done
+exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 3593]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1550016 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+....................Spawning for dst_port number 1
+..........Nach 3s gesendet: 1497985 Pakete
+......................................................................Spawning done
+.Assembling done
+.Sending stopped - assembling finish expected
+........Insgesamt 8196034 Pakete in 17002 ms gesendet
+......................Answers lost: 0, Answers read: 1638846, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1638846
+  Passed: 0
+  Valid: 1638846
+  RST sent: 1638846
+Scanjob done
+exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 3630]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+XDP Mode: SKB (Generic, enforced)
+.waiting for link reset...
+.................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600032 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+...........Spawning for dst_port number 1
+...................Nach 3s gesendet: 1499296 Pakete
+......................................................................Spawning done
+.Assembling done
+Sending stopped - assembling finish expected
+.........Insgesamt 8198656 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1639265, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1639269
+  Passed: 4
+  Valid: 1639265
+  RST sent: 1639265
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 3672]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+.............................Nach 3s gesendet: 1600032 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+...........Spawning for dst_port number 1
+...................Nach 3s gesendet: 1499296 Pakete
+......................................................................Spawning done
+.Assembling done
+Sending stopped - assembling finish expected
+.........Insgesamt 8198656 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1637839, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1637839
+  Passed: 0
+  Valid: 1637839
+  RST sent: 1637839
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 3713]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      true
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: SKB (Generic, enforced)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600032 Pakete
+.............................Nach 3s gesendet: 1500000 Pakete
+...........Spawning for dst_port number 1
+...................Nach 3s gesendet: 1499296 Pakete
+......................................................................Spawning done
+.Assembling done
+Sending stopped - assembling finish expected
+.........Insgesamt 8198656 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1639644, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1639644
+  Passed: 0
+  Valid: 1639644
+  RST sent: 1639644
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+>>> Szenario: SYN-Rust (XDP, Copy)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 3751]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1550016 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+....................Spawning for dst_port number 1
+..........Nach 3s gesendet: 1499136 Pakete
+......................................................................Spawning done
+.Assembling done
+Sending stopped - assembling finish expected
+.........Insgesamt 8198336 Pakete in 17002 ms gesendet
+......................Answers lost: 0, Answers read: 1640350, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1640350
+  Passed: 0
+  Valid: 1640350
+  RST sent: 1640350
+Scanjob done
+exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 3790]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1550016 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+....................Spawning for dst_port number 1
+..........Nach 3s gesendet: 1497985 Pakete
+......................................................................Spawning done
+.Assembling done
+Sending stopped - assembling finish expected
+.........Insgesamt 8196034 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1638106, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1638108
+  Passed: 2
+  Valid: 1638106
+  RST sent: 1638106
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 3828]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600032 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+..........Spawning for dst_port number 1
+....................Nach 3s gesendet: 1498272 Pakete
+......................................................................Spawning done
+.Assembling done
+Sending stopped - assembling finish expected
+.........Insgesamt 8196608 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1637673, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1637673
+  Passed: 0
+  Valid: 1637673
+  RST sent: 1637673
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 3871]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1550016 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+....................Spawning for dst_port number 1
+..........Nach 3s gesendet: 1499136 Pakete
+......................................................................Spawning done
+.Assembling done
+Sending stopped - assembling finish expected
+.........Insgesamt 8198336 Pakete in 17002 ms gesendet
+......................Answers lost: 0, Answers read: 1638524, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1638524
+  Passed: 0
+  Valid: 1638524
+  RST sent: 1638524
+Scanjob done
+exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 3911]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         false
+  Generic Mode:      false
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: false
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600032 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+..........Spawning for dst_port number 1
+....................Nach 3s gesendet: 1498272 Pakete
+......................................................................Spawning done
+.Assembling done
+Sending stopped - assembling finish expected
+.........Insgesamt 8196608 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1639607, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1639607
+  Passed: 0
+  Valid: 1639607
+  RST sent: 1639607
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+>>> Szenario: SYN-Rust (XDP, Zero-Copy, kein RST)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 3954]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               true
+Reset:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600032 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+..........Spawning for dst_port number 1
+....................Nach 3s gesendet: 1498145 Pakete
+......................................................................Spawning done
+Assembling done
+.Sending stopped - assembling finish expected
+.........Insgesamt 8196354 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1639703, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1639703
+  Passed: 0
+  Valid: 1639703
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 3995]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               true
+Reset:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1550016 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+....................Spawning for dst_port number 1
+..........Nach 3s gesendet: 1497985 Pakete
+......................................................................Spawning done
+.Assembling done
+Sending stopped - assembling finish expected
+.........Insgesamt 8196034 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1638987, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1638987
+  Passed: 0
+  Valid: 1638987
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 4036]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               true
+Reset:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600032 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+..........Spawning for dst_port number 1
+....................Nach 3s gesendet: 1498145 Pakete
+......................................................................Spawning done
+Assembling done
+.Sending stopped - assembling finish expected
+.........Insgesamt 8196354 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1638990, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1638990
+  Passed: 0
+  Valid: 1638990
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 4074]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               true
+Reset:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600032 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+..........Spawning for dst_port number 1
+....................Nach 3s gesendet: 1498145 Pakete
+......................................................................Spawning done
+Assembling done
+.Sending stopped - assembling finish expected
+.........Insgesamt 8196354 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1640280, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1640280
+  Passed: 0
+  Valid: 1640280
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 4112]
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                XDP
+  Zero Copy:         true
+  Generic Mode:      false
+IPv6:                false
+Dedup:               true
+Reset:               false
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................XDP bi socket started with zero-copy mode: true
+waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600032 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+..........Spawning for dst_port number 1
+....................Nach 3s gesendet: 1498145 Pakete
+......................................................................Spawning done
+Assembling done
+.Sending stopped - assembling finish expected
+.........Insgesamt 8196354 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1639702, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1639702
+  Passed: 0
+  Valid: 1639702
+  RST sent: 0
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+>>> Szenario: SYN-Rust (AF_PACKET)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 4151]WARN: Zero Copy requires XDP. Disabling Zero Copy.
+WARN: Generic Mode requires XDP. Disabling Generic Mode.
+
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1550048 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+....................Spawning for dst_port number 1
+..........Nach 3s gesendet: 1498080 Pakete
+......................................................................Spawning done
+Assembling done
+..Sending stopped - assembling finish expected
+........Insgesamt 8196352 Pakete in 17002 ms gesendet
+......................Answers lost: 0, Answers read: 1639687, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1639687
+  Passed: 0
+  Valid: 1639687
+  RST sent: 1639687
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 4189]WARN: Zero Copy requires XDP. Disabling Zero Copy.
+WARN: Generic Mode requires XDP. Disabling Generic Mode.
+
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600096 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+..........Spawning for dst_port number 1
+....................Nach 3s gesendet: 1498560 Pakete
+......................................................................Spawning done
+Assembling done
+.Sending stopped - assembling finish expected
+.........Insgesamt 8197312 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1638005, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1638005
+  Passed: 0
+  Valid: 1638005
+  RST sent: 1638005
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 4232]WARN: Zero Copy requires XDP. Disabling Zero Copy.
+WARN: Generic Mode requires XDP. Disabling Generic Mode.
+
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600096 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+..........Spawning for dst_port number 1
+....................Nach 3s gesendet: 1498433 Pakete
+......................................................................Spawning done
+Assembling done
+.Sending stopped - assembling finish expected
+.........Insgesamt 8197058 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1640315, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1640315
+  Passed: 0
+  Valid: 1640315
+  RST sent: 1640315
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 4271]WARN: Zero Copy requires XDP. Disabling Zero Copy.
+WARN: Generic Mode requires XDP. Disabling Generic Mode.
+
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600096 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+..........Spawning for dst_port number 1
+....................Nach 3s gesendet: 1499584 Pakete
+......................................................................Spawning done
+Assembling done
+.Sending stopped - assembling finish expected
+.........Insgesamt 8199360 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1640570, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1640570
+  Passed: 0
+  Valid: 1640570
+  RST sent: 1640570
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 4311]WARN: Zero Copy requires XDP. Disabling Zero Copy.
+WARN: Generic Mode requires XDP. Disabling Generic Mode.
+
+=== SYN-Rust MOCK CONFIGURATION ===
+Interface:           Some("enp6s0")
+Scan Rate:           240 Mbit/s
+Mode:                AF_PACKET
+IPv6:                false
+Dedup:               true
+Reset:               true
+======================================
+
+Using device enp6s0
+.XDP Mode: Driver (Native, fast)
+waiting for link reset...
+..................................................waiting for receiver & sender...
+..........Spawning for dst_port number 0 (from chan)
+..............................Nach 3s gesendet: 1600096 Pakete
+..............................Nach 3s gesendet: 1500000 Pakete
+..........Spawning for dst_port number 1
+....................Nach 3s gesendet: 1498433 Pakete
+......................................................................Spawning done
+Assembling done
+.Sending stopped - assembling finish expected
+.........Insgesamt 8197058 Pakete in 17002 ms gesendet
+.....................Answers lost: 0, Answers read: 1638048, Duplicates: 0
+Broadcaster received signal: finish
+eBPF Stats:
+  Received: 1638048
+  Passed: 0
+  Valid: 1638048
+  RST sent: 1638048
+Scanjob done
+.exited with status Ok(ExitStatus(unix_wait_status(0)))
+. [Post-Record] Done.
+
+>>> Szenario: ZMap
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 4351]Feb 06 11:39:41.604 [WARN] blocklist: ZMap is currently using the default blocklist located at /etc/zmap/blocklist.conf. By default, this blocklist excludes locally scoped networks (e.g. 10.0.0.0/8, 127.0.0.1/8, and 192.168.0.0/16). If you are trying to scan local networks, you can change the default blocklist by editing the default ZMap configuration at /etc/zmap/blocklist.conf. If you have modified the default blocklist, you can ignore this message.
+Feb 06 11:39:41.604 [INFO] dedup: Response deduplication method is window with size 1000000
+Feb 06 11:39:41.604 [INFO] filter: No output filter provided. ZMap will output all results, including duplicate and non-successful responses (e.g., RST and ICMP packets). If you want a filter similar to ZMap's default behavior, you can set an output filter similar to the following: --output-filter="success=1 && repeat=0".
+Feb 06 11:39:41.645 [INFO] recv: duplicate responses will be passed to the output module
+Feb 06 11:39:41.645 [INFO] recv: unsuccessful responses will be passed to the output module
+............................................................................................................................................................................................................................. [Auto-Stop: Idle] [Post-Record] Done.
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 4373]Feb 06 11:40:11.813 [WARN] blocklist: ZMap is currently using the default blocklist located at /etc/zmap/blocklist.conf. By default, this blocklist excludes locally scoped networks (e.g. 10.0.0.0/8, 127.0.0.1/8, and 192.168.0.0/16). If you are trying to scan local networks, you can change the default blocklist by editing the default ZMap configuration at /etc/zmap/blocklist.conf. If you have modified the default blocklist, you can ignore this message.
+Feb 06 11:40:11.813 [INFO] dedup: Response deduplication method is window with size 1000000
+Feb 06 11:40:11.813 [INFO] filter: No output filter provided. ZMap will output all results, including duplicate and non-successful responses (e.g., RST and ICMP packets). If you want a filter similar to ZMap's default behavior, you can set an output filter similar to the following: --output-filter="success=1 && repeat=0".
+Feb 06 11:40:11.832 [INFO] recv: duplicate responses will be passed to the output module
+Feb 06 11:40:11.832 [INFO] recv: unsuccessful responses will be passed to the output module
+............................................................................................................................................................................................................................ [Auto-Stop: Idle] [Post-Record] Done.
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 4383]Feb 06 11:40:41.926 [WARN] blocklist: ZMap is currently using the default blocklist located at /etc/zmap/blocklist.conf. By default, this blocklist excludes locally scoped networks (e.g. 10.0.0.0/8, 127.0.0.1/8, and 192.168.0.0/16). If you are trying to scan local networks, you can change the default blocklist by editing the default ZMap configuration at /etc/zmap/blocklist.conf. If you have modified the default blocklist, you can ignore this message.
+Feb 06 11:40:41.926 [INFO] dedup: Response deduplication method is window with size 1000000
+Feb 06 11:40:41.926 [INFO] filter: No output filter provided. ZMap will output all results, including duplicate and non-successful responses (e.g., RST and ICMP packets). If you want a filter similar to ZMap's default behavior, you can set an output filter similar to the following: --output-filter="success=1 && repeat=0".
+Feb 06 11:40:41.945 [INFO] recv: duplicate responses will be passed to the output module
+Feb 06 11:40:41.945 [INFO] recv: unsuccessful responses will be passed to the output module
+........................................................................................................................................................................................................................... [Auto-Stop: Idle] [Post-Record] Done.
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 4393]Feb 06 11:41:11.938 [WARN] blocklist: ZMap is currently using the default blocklist located at /etc/zmap/blocklist.conf. By default, this blocklist excludes locally scoped networks (e.g. 10.0.0.0/8, 127.0.0.1/8, and 192.168.0.0/16). If you are trying to scan local networks, you can change the default blocklist by editing the default ZMap configuration at /etc/zmap/blocklist.conf. If you have modified the default blocklist, you can ignore this message.
+Feb 06 11:41:11.938 [INFO] dedup: Response deduplication method is window with size 1000000
+Feb 06 11:41:11.938 [INFO] filter: No output filter provided. ZMap will output all results, including duplicate and non-successful responses (e.g., RST and ICMP packets). If you want a filter similar to ZMap's default behavior, you can set an output filter similar to the following: --output-filter="success=1 && repeat=0".
+Feb 06 11:41:11.957 [INFO] recv: duplicate responses will be passed to the output module
+Feb 06 11:41:11.958 [INFO] recv: unsuccessful responses will be passed to the output module
+............................................................................................................................................................................................................................ [Auto-Stop: Idle] [Post-Record] Done.
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 4403]Feb 06 11:41:42.051 [WARN] blocklist: ZMap is currently using the default blocklist located at /etc/zmap/blocklist.conf. By default, this blocklist excludes locally scoped networks (e.g. 10.0.0.0/8, 127.0.0.1/8, and 192.168.0.0/16). If you are trying to scan local networks, you can change the default blocklist by editing the default ZMap configuration at /etc/zmap/blocklist.conf. If you have modified the default blocklist, you can ignore this message.
+Feb 06 11:41:42.051 [INFO] dedup: Response deduplication method is window with size 1000000
+Feb 06 11:41:42.051 [INFO] filter: No output filter provided. ZMap will output all results, including duplicate and non-successful responses (e.g., RST and ICMP packets). If you want a filter similar to ZMap's default behavior, you can set an output filter similar to the following: --output-filter="success=1 && repeat=0".
+Feb 06 11:41:42.083 [INFO] recv: duplicate responses will be passed to the output module
+Feb 06 11:41:42.083 [INFO] recv: unsuccessful responses will be passed to the output module
+............................................................................................................................................................................................................................ [Auto-Stop: Idle] [Post-Record] Done.
+
+>>> Szenario: Masscan (keine Duplikatsentfernung)
+
+   Run 1/5: Baseline.... Active Test... [Pre-Record] [Start PID 4413]Starting masscan 1.3.9-integration (http://bit.ly/14GZzcT) at 2026-02-06 10:42:12 GMT
+Initiating SYN Stealth Scan
+Scanning 4194304 hosts [2 ports/host]
+... [Auto-Stop: Idle] [Post-Record] Done. 6-secs, found=1679512                 
+
+   Run 2/5: Baseline.... Active Test... [Pre-Record] [Start PID 4424]Starting masscan 1.3.9-integration (http://bit.ly/14GZzcT) at 2026-02-06 10:42:46 GMT
+Initiating SYN Stealth Scan
+Scanning 4194304 hosts [2 ports/host]
+.. [Auto-Stop: Idle] [Post-Record] Done.g 6-secs, found=1679562                 
+
+   Run 3/5: Baseline.... Active Test... [Pre-Record] [Start PID 4432]Starting masscan 1.3.9-integration (http://bit.ly/14GZzcT) at 2026-02-06 10:43:20 GMT
+Initiating SYN Stealth Scan
+Scanning 4194304 hosts [2 ports/host]
+. [Auto-Stop: Idle] [Post-Record] Done.ing 6-secs, found=1677937                
+
+   Run 4/5: Baseline.... Active Test... [Pre-Record] [Start PID 4439]Starting masscan 1.3.9-integration (http://bit.ly/14GZzcT) at 2026-02-06 10:43:54 GMT
+Initiating SYN Stealth Scan
+Scanning 4194304 hosts [2 ports/host]
+... [Auto-Stop: Idle] [Post-Record] Done. 6-secs, found=1676356                 
+
+   Run 5/5: Baseline.... Active Test... [Pre-Record] [Start PID 4446]Starting masscan 1.3.9-integration (http://bit.ly/14GZzcT) at 2026-02-06 10:44:29 GMT
+Initiating SYN Stealth Scan
+Scanning 4194304 hosts [2 ports/host]
+. [Auto-Stop: Idle] [Post-Record] Done.ing 5-secs, found=1679411                
+
+Fertig. Daten in: ./messdaten/20260206_112824_Benchmark_Suite
+
+lennard@lennard-MS-7D18:~/Bachelor$ sudo chown -R $USER:$USER messdaten/
+
+lennard@lennard-MS-7D18:~/Bachelor$ python3 validate_responses.py messdaten/20260206_112824_Benchmark_Suite
+Validiere Ergebnisse in: messdaten/20260206_112824_Benchmark_Suite ...
+DEBUG: Gefunden Masscan File messdaten/20260206_112824_Benchmark_Suite/Masscan (keine Duplikatsentfernung)/run_3/outpput_results.txt
+DEBUG: Gefunden Masscan File messdaten/20260206_112824_Benchmark_Suite/Masscan (keine Duplikatsentfernung)/run_4/outpput_results.txt
+DEBUG: Gefunden Masscan File messdaten/20260206_112824_Benchmark_Suite/Masscan (keine Duplikatsentfernung)/run_2/outpput_results.txt
+DEBUG: Gefunden Masscan File messdaten/20260206_112824_Benchmark_Suite/Masscan (keine Duplikatsentfernung)/run_1/outpput_results.txt
+DEBUG: Gefunden Masscan File messdaten/20260206_112824_Benchmark_Suite/Masscan (keine Duplikatsentfernung)/run_5/outpput_results.txt
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Copy)/run_2/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Copy)/run_4/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Copy)/run_3/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Copy)/run_1/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Copy)/run_5/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Generic)/run_2/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Generic)/run_4/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Generic)/run_3/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Generic)/run_1/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Generic)/run_5/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (AF_PACKET)/run_2/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (AF_PACKET)/run_4/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (AF_PACKET)/run_3/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (AF_PACKET)/run_1/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (AF_PACKET)/run_5/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Zero-Copy, kein RST)/run_2/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Zero-Copy, kein RST)/run_4/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Zero-Copy, kein RST)/run_3/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Zero-Copy, kein RST)/run_1/scan_output.csv
+DEBUG: Gefunden messdaten/20260206_112824_Benchmark_Suite/SYN-Rust (XDP, Zero-Copy, kein RST)/run_5/scan_output.csv
+
+--- Detaillierte Validierung pro Run ---
+                            Scanner   Run                File    Hits
+Masscan (keine Duplikatsentfernung) run_1 outpput_results.txt 1679419
+Masscan (keine Duplikatsentfernung) run_2 outpput_results.txt 1679464
+Masscan (keine Duplikatsentfernung) run_3 outpput_results.txt 1677835
+Masscan (keine Duplikatsentfernung) run_4 outpput_results.txt 1676305
+Masscan (keine Duplikatsentfernung) run_5 outpput_results.txt 1679328
+               SYN-Rust (AF_PACKET) run_1     scan_output.csv 1639687
+               SYN-Rust (AF_PACKET) run_2     scan_output.csv 1638005
+               SYN-Rust (AF_PACKET) run_3     scan_output.csv 1640315
+               SYN-Rust (AF_PACKET) run_4     scan_output.csv 1640570
+               SYN-Rust (AF_PACKET) run_5     scan_output.csv 1638048
+               SYN-Rust (XDP, Copy) run_1     scan_output.csv 1640350
+               SYN-Rust (XDP, Copy) run_2     scan_output.csv 1638106
+               SYN-Rust (XDP, Copy) run_3     scan_output.csv 1637673
+               SYN-Rust (XDP, Copy) run_4     scan_output.csv 1638524
+               SYN-Rust (XDP, Copy) run_5     scan_output.csv 1639607
+            SYN-Rust (XDP, Generic) run_1     scan_output.csv 1639666
+            SYN-Rust (XDP, Generic) run_2     scan_output.csv 1638846
+            SYN-Rust (XDP, Generic) run_3     scan_output.csv 1639265
+            SYN-Rust (XDP, Generic) run_4     scan_output.csv 1637839
+            SYN-Rust (XDP, Generic) run_5     scan_output.csv 1639644
+SYN-Rust (XDP, Zero-Copy, kein RST) run_1     scan_output.csv 1639703
+SYN-Rust (XDP, Zero-Copy, kein RST) run_2     scan_output.csv 1638987
+SYN-Rust (XDP, Zero-Copy, kein RST) run_3     scan_output.csv 1638990
+SYN-Rust (XDP, Zero-Copy, kein RST) run_4     scan_output.csv 1640280
+SYN-Rust (XDP, Zero-Copy, kein RST) run_5     scan_output.csv 1639702
+                               ZMap run_1  output_results.csv 1679359
+                               ZMap run_2  output_results.csv 1678336
+                               ZMap run_3  output_results.csv 1678417
+                               ZMap run_4  output_results.csv 1678265
+                               ZMap run_5  output_results.csv 1677109
+
+--- Zusammenfassung (Durchschnittliche Treffer) ---
+                            Scanner    Ø Hits
+Masscan (keine Duplikatsentfernung) 1678470.2
+               SYN-Rust (AF_PACKET) 1639325.0
+               SYN-Rust (XDP, Copy) 1638852.0
+            SYN-Rust (XDP, Generic) 1639052.0
+SYN-Rust (XDP, Zero-Copy, kein RST) 1639532.4
+                               ZMap 1678297.2
+
+Validierungs-Tabelle gespeichert in: messdaten/20260206_112824_Benchmark_Suite/validierung_hits.csv
+
+lennard@lennard-MS-7D18:~/Bachelor$ python3 plot_benchmark_suite.py ./messdaten/20260206_112824_Benchmark_Suite
+Lese Daten aus: ./messdaten/20260206_112824_Benchmark_Suite
+Analysiere Scanner: Masscan (keine Duplikatsentfernung) ...
+Analysiere Scanner: SYN-Rust (AF_PACKET) ...
+Analysiere Scanner: SYN-Rust (XDP, Copy) ...
+Analysiere Scanner: SYN-Rust (XDP, Generic) ...
+Analysiere Scanner: SYN-Rust (XDP, Zero-Copy, kein RST) ...
+Analysiere Scanner: ZMap ...
+Erstelle Grafiken...
+Generiere kombinierte Tabelle...
+Ethtool Ergebnisse gespeichert in: ./messdaten/20260206_112824_Benchmark_Suite/ethtool_ergebnisse.csv
+
+--- Summary ---
+                            Scanner  Effizienz [PPS/CPU(%)] (aktiv)   PPS (aktiv)  CPU Netto [%] (aktiv)  RAM Netto [MB] (aktiv)  CPU Netto [%] (gesamt)  RAM Netto [MB] (gesamt)
+SYN-Rust (XDP, Zero-Copy, kein RST)                   184352.509517 507323.998742               2.756541               82.167727                1.842326                62.033525
+               SYN-Rust (XDP, Copy)                   106118.254915 604912.088428               5.701747               76.958790                3.565415                57.731563
+            SYN-Rust (XDP, Generic)                   103086.546675 603858.976368               5.858613               96.929648                3.701699                74.718322
+               SYN-Rust (AF_PACKET)                    99871.483522 607395.840575               6.081877              112.147872                3.816838                88.282112
+Masscan (keine Duplikatsentfernung)                    75533.760972 501738.007121               6.644009               34.776313                4.785965                31.382750
+                               ZMap                    13272.405975 493838.320270              37.207984               62.309244               26.447448                58.323975
+
+--- Ethtool Stats ---
+                            Scanner  Eth Txs (HW)  Eth Txs (SW)  Diff TX [%]  Eth Rxs (HW)  Eth Rxs (SW)  Diff RX [%]
+SYN-Rust (XDP, Zero-Copy, kein RST)     8196292.0   8110321.800    -1.048895     1639532.4   1622338.598    -1.048716
+               SYN-Rust (XDP, Copy)     9834236.2   9825580.056    -0.088038     1638852.4   1637424.488    -0.087196
+            SYN-Rust (XDP, Generic)     9834857.2   9849724.392     0.151184     1639052.8   1641525.610     0.150925
+               SYN-Rust (AF_PACKET)     9836755.0   9871632.630     0.354575     1639325.0   1645149.768     0.355369
+Masscan (keine Duplikatsentfernung)    10067164.0  10068106.382     0.009361     1678646.8   1678809.980     0.009720
+                               ZMap     8388608.0   8390267.156     0.019779     1678296.2   1678644.814     0.020769
+
+Fertig. Ergebnisse in ./messdaten/20260206_112824_Benchmark_Suite
+lennard@lennard-MS-7D18:~/Bachelor$ 
+

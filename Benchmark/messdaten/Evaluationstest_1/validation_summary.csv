@@ -1,0 +1,21 @@
+Scanner;Run;Coverage %;Accuracy %;Unique IPs;Even IPs (Correct);Odd IPs (False);Total Lines;Duplicates;File
+SYN-Rust (AF_PACKET);run_1;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (AF_PACKET);run_2;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (AF_PACKET);run_3;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (AF_PACKET);run_4;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (AF_PACKET);run_5;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Copy);run_1;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Copy);run_2;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Copy);run_3;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Copy);run_4;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Copy);run_5;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Generic);run_1;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Generic);run_2;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Generic);run_3;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Generic);run_4;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Generic);run_5;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Zero-Copy);run_1;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Zero-Copy);run_2;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Zero-Copy);run_3;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Zero-Copy);run_4;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
+SYN-Rust (XDP, Zero-Copy);run_5;50.0;100.0;2048;2048;0;2048;0;scan_output.csv
