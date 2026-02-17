@@ -1,6 +1,8 @@
 #![no_std]
 #![no_main]
 
+use core::{hash::Hasher, mem};
+
 use aya_ebpf::{
     bindings::xdp_action,
     helpers::bpf_xdp_adjust_tail,
@@ -8,18 +10,18 @@ use aya_ebpf::{
     maps::{Array, HashMap, PerCpuArray, RingBuf},
     programs::XdpContext,
 };
-use core::hash::Hasher;
-use core::mem;
-use network_types::ip::Ipv6Hdr;
+// FIXME aya version isn't compatible with new nightly toolchain so I added a dummy macro for info
+// use aya_log_ebpf::info;
+macro_rules! info {
+    ($($tt:tt)*) => {};
+}
 use network_types::{
     eth::{EthHdr, EtherType},
-    ip::{IpProto, Ipv4Hdr},
+    ip::{IpProto, Ipv4Hdr, Ipv6Hdr},
     tcp::TcpHdr,
 };
-use xdp_common::PacketLog;
-
-use aya_log_ebpf::info;
 use siphasher::sip::SipHasher24;
+use xdp_common::PacketLog;
 
 // 0: RX_TOTAL, 1: RX_PASSED, 2: RX_VALID, 3: TX_RST
 #[map]

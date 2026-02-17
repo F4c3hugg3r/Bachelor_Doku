@@ -1,26 +1,25 @@
-use std::hash::Hash;
-use std::sync::Arc;
+use std::{hash::Hash, sync::Arc};
 
-use clap::Parser;
-use clap_derive::Parser as DeriveParser;
-use pnet::util::MacAddr;
-use tokio::io::{BufReader, Stdin};
-
-use crate::scan_utils::job_controlling::parser_std_in::StdInParser;
-use crate::scan_utils::job_controlling::scan_job::ScanJob;
-use crate::scan_utils::shared::helper::{self};
-
-use crate::scan_utils::shared::types_and_config::{CaptureConfig, EmissionConfig, HashKeys};
-use anyhow::Context;
-use anyhow::Context as _;
+use anyhow::{Context, Context as _};
 use aya::programs::{Xdp, XdpFlags};
 use aya_log::EbpfLogger;
+use clap::Parser;
+use clap_derive::Parser as DeriveParser;
 use log::{info, warn};
+use pnet::util::MacAddr;
 use rand::Rng;
-use tokio::signal; // (1)
-
 #[cfg(not(target_env = "msvc"))]
 use tikv_jemallocator::Jemalloc;
+use tokio::io::{BufReader, Stdin};
+use tokio::signal; // (1)
+
+use crate::scan_utils::{
+    job_controlling::{parser_std_in::StdInParser, scan_job::ScanJob},
+    shared::{
+        helper::{self},
+        types_and_config::{CaptureConfig, EmissionConfig, HashKeys},
+    },
+};
 
 #[cfg(not(target_env = "msvc"))]
 #[global_allocator]
@@ -81,14 +80,7 @@ pub struct Args {
 // (sender / receiver / finish broadcaster)
 
 // TODO for the future:
-// sudo ethtool -G enp6s0 rx 4096 tx 4096 hinzufügen
-// change duplicate Erkennnung
-// batch size für xdp auf 64? capturen in batches?
 // config validation after parsing
-
-// TODOs for future work
-// (irq balance ausschalten und korrekte cores pinnen (siehe docs))
-// Allgemeine Struktur anpassen für unterschiedliche Protokolle
 
 // NOTICE: Error output and logging is bound to the StdErr output, use "sudo ./SYNScanner 2>stderr.txt"
 // to show it in a seperate File or "sudo ./SYNScanner 2>/dev/null" to ignore it
@@ -105,8 +97,6 @@ async fn main() -> Result<(), anyhow::Error> {
     // XDP CONFIG
     // env_logger::init();
     env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("info")).init();
-    // Bump the memlock rlimit. This is needed for older kernels that don't use the
-    // new memcg based accounting, see https://lwn.net/Articles/837122/
     let rlim = libc::rlimit {
         rlim_cur: libc::RLIM_INFINITY,
         rlim_max: libc::RLIM_INFINITY,
@@ -122,9 +112,9 @@ async fn main() -> Result<(), anyhow::Error> {
         "/scanner"
     )))?;
 
+    /*
     match aya_log::EbpfLogger::init(&mut ebpf) {
         Err(e) => {
-            // This can happen if you remove all log statements from your eBPF program.
             warn!("failed to initialize eBPF logger: {e}");
         }
         Ok(logger) => {
@@ -139,6 +129,7 @@ async fn main() -> Result<(), anyhow::Error> {
             });
         }
     }
+    */
     let program: &mut Xdp = ebpf.program_mut("xdp_node").unwrap().try_into()?;
     program.load()?;
 
@@ -147,20 +138,17 @@ async fn main() -> Result<(), anyhow::Error> {
             .attach(&emission_cfg.interface, XdpFlags::SKB_MODE)
             .context("failed to attach XDP program in SKB (Generic) mode")?;
         eprintln!("XDP Mode: SKB (Generic, enforced)");
+    } else if program
+        .attach(&emission_cfg.interface, XdpFlags::DRV_MODE)
+        .is_ok()
+    {
+        eprintln!("XDP Mode: Driver (Native, fast)");
     } else {
-        if program
-            .attach(&emission_cfg.interface, XdpFlags::DRV_MODE)
-            .is_ok()
-        {
-            eprintln!("XDP Mode: Driver (Native, fast)");
-        } else {
-            program
-                .attach(&emission_cfg.interface, XdpFlags::SKB_MODE)
-                .context("failed to attach XDP program in both Driver and SKB mode")?;
-            eprintln!("XDP Mode: SKB (Generic, slow)");
-        }
+        program
+            .attach(&emission_cfg.interface, XdpFlags::SKB_MODE)
+            .context("failed to attach XDP program in both Driver and SKB mode")?;
+        eprintln!("XDP Mode: SKB (Generic, slow)");
     }
-    // program.attach(&emission_cfg.interface, XdpFlags::default())?;
 
     // prepare shared recources
     let mut mode_map: aya::maps::Array<_, u8> =
@@ -213,17 +201,13 @@ async fn main() -> Result<(), anyhow::Error> {
 
     let events = aya::maps::RingBuf::try_from(ebpf.take_map("EVENTS").unwrap())?;
 
-    // CLEANUP & CTRLC HANDLING
-    // let _cleanup = Cleanup {
-    //     interface: emission_cfg.interface.clone(),
-    // };
     let cleanup_interface = emission_cfg.interface.clone();
     ctrlc::set_handler(move || {
         std::process::exit(0);
     })
     .expect("Error setting Ctrl-C handler");
 
-    // SCANJOB
+    // Scanjob
     let arc_ec = Arc::new(emission_cfg);
     let arc_cc = Arc::new(capture_cfg);
     let (_external_stop, mut finish) =
@@ -232,7 +216,7 @@ async fn main() -> Result<(), anyhow::Error> {
         eprintln!("failed to finish scanjob successfully");
     };
 
-    // Test
+    // Logs output
     if let Some(map) = ebpf.map("STATS")
         && let Ok(stats_map) = aya::maps::PerCpuArray::<_, u64>::try_from(map)
     {

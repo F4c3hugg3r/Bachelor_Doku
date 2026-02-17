@@ -148,7 +148,7 @@ impl ScanJob {
         // }
 
         // Start capturing & Sending
-        if emission_config.xdp {
+        if emission_config.af_xdp {
             match helper::create_xdp_bi_sockets(
                 num_nic_queues,
                 emission_config.interface.clone(),

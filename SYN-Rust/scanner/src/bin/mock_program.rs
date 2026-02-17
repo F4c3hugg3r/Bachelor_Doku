@@ -1,15 +1,21 @@
+use std::{
+    net::{Ipv4Addr, Ipv6Addr},
+    process::Stdio,
+    vec,
+};
+
 use ipnetwork::{Ipv4Network, Ipv6Network};
-use pnet::packet::ethernet::{EtherTypes, MutableEthernetPacket};
-use pnet::packet::ip::IpNextHeaderProtocols;
-use pnet::packet::ipv4::{MutableIpv4Packet, checksum as ipv4_checksum};
-use pnet::packet::tcp::{MutableTcpPacket, TcpFlags, ipv4_checksum as tcp_ipv4_checksum};
-use pnet::util::MacAddr;
+use pnet::{
+    packet::{
+        ethernet::{EtherTypes, MutableEthernetPacket},
+        ip::IpNextHeaderProtocols,
+        ipv4::{MutableIpv4Packet, checksum as ipv4_checksum},
+        tcp::{MutableTcpPacket, TcpFlags, ipv4_checksum as tcp_ipv4_checksum},
+    },
+    util::MacAddr,
+};
 use serde::{Deserialize, Serialize};
-use std::net::{Ipv4Addr, Ipv6Addr};
-use std::process::Stdio;
-use std::vec;
-use tokio::io::AsyncWriteExt;
-use tokio::process::Command;
+use tokio::{io::AsyncWriteExt, process::Command};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct GivenConfig {
@@ -55,23 +61,23 @@ pub enum IpSource {
 #[tokio::main]
 async fn main() {
     // =================================================================================================
-    // CONFIGURATION (manuual)
+    // CONFIGURATION (change manually)
     // =================================================================================================
 
     // --- 1. GENERAL SETTINGS ---
-    let interface = Some("enp6s0");
-    let scanrate = 48; // in Mbit/s
+    let interface = Some("eno1");
+    let scanrate = 100; // in Mbit/s
     let retries = 0; // max 3
     let num_nic_queues = 1; // To find out how many are possible: sudo ethtool -l <interface>
 
     // --- 2. MODE SETTINGS ---
-    let mut xdp = false; // Use XDP (High Performance) else AF_PACKET is used
-    let mut zero_copy = true; // Use Zero-Copy (Requires Driver Support)
+    let mut af_xdp = true; // Use XDP (High Performance) else AF_PACKET is used
+    let mut zero_copy = false; // Use Zero-Copy (Requires Driver Support)
     let mut generic_mode = false; // Force Generic Mode (Slower, Driver Independent)
     let batch = true; // Send packets in batches (highly suggested)
 
     // --- 3. PACKET & BEHAVIOR ---
-    let deduplicate = false; // Filter duplicate IPs
+    let deduplicate = true; // Filter duplicate IPs
     let reset = false; // Send RST after SYN-ACK? (false for igb drivers)
     let send_ipv6 = false;
     let parsing_timeout_millis = 3000; // Time to wait after sending is finished
@@ -81,14 +87,14 @@ async fn main() {
     // Ports
     let src_ports = vec![60000];
     // let src_ports: Vec<u16> = (60000..60128).collect();
-    let dst_ports = vec![80];
+    let dst_ports = vec![80, 443];
 
     // MAC Addresses
-    let gw_mac: MacAddr = MacAddr::new(0x00, 0x1b, 0x21, 0xda, 0xfc, 0xef); // Gateway
-    let src_mac: MacAddr = MacAddr::new(0x00, 0x1b, 0x21, 0xf3, 0x7a, 0x55); // Source (Interface)
+    let gw_mac: MacAddr = MacAddr::new(0x48, 0x5d, 0x35, 0x19, 0x04, 0x0e); // Gateway
+    let src_mac: MacAddr = MacAddr::new(0xb0, 0x25, 0xaa, 0x3d, 0xfa, 0x32); // Source (Interface)
 
     // Source IPs
-    let src_ipv4: Ipv4Network = "192.168.0.1/32".parse().unwrap();
+    let src_ipv4: Ipv4Network = "192.168.178.181/32".parse().unwrap();
     let addr_ipv6 = Ipv6Addr::from([
         0xfd, 0xad, 0x4c, 0x7e, 0x4d, 0x81, 0x00, 0x00, 0x8c, 0xc6, 0xb2, 0x19, 0x3c, 0xba, 0xf3,
         0x8e,
@@ -99,28 +105,28 @@ async fn main() {
     // Uncomment the desired source:
 
     // A) Send to CIDR range
-    // let dst_ips = IpSource::RangeIpv4("10.0.0.0/20".parse().unwrap());
+    // let dst_ips = IpSource::RangeIpv4("10.0.0.0/10".parse().unwrap());
 
     // B) Send to specific IPs
-    // let dst_ips = IpSource::ListIpv4(vec![[192, 168, 0, 3], [192, 168, 0, 2]]);
+    let dst_ips = IpSource::ListIpv4(vec![[188, 40, 28, 6], [192, 168, 0, 2], [8, 8, 8, 8]]);
 
     // C) Send to same IP repeatedly (Benchmark)
-    let dst_ips = IpSource::RepeatIpv4 {
-        ip: [192, 168, 0, 3],
-        count: 4,
-    };
+    // let dst_ips = IpSource::RepeatIpv4 {
+    //     ip: [192, 168, 0, 3],
+    //     count: 4,
+    // };
 
     // D) File Input (Optional)
-    let string_file_path: Option<&str> = None;
-    // let string_file_path: Option<&str> = Some("/path/to/ipv4s.txt");
+    // let string_file_path: Option<&str> = None;
+    let string_file_path: Option<&str> = Some("/home/lennard/Documents/ipv4s.txt");
     let byte_file_path: Option<&str> = None;
 
     // =================================================================================================
-    // LOGIC & VALIDATION (automatic)
+    // LOGIC & VALIDATION (do not change!)
     // =================================================================================================
 
     // Ensure logic constraints
-    if !xdp {
+    if !af_xdp {
         if zero_copy {
             eprintln!("WARN: Zero Copy requires XDP. Disabling Zero Copy.");
             zero_copy = false;
@@ -135,8 +141,12 @@ async fn main() {
     println!("\n=== SYN-Rust MOCK CONFIGURATION ===");
     println!("{:<20} {:?}", "Interface:", interface);
     println!("{:<20} {} Mbit/s", "Scan Rate:", scanrate);
-    println!("{:<20} {}", "Mode:", if xdp { "XDP" } else { "AF_PACKET" });
-    if xdp {
+    println!(
+        "{:<20} {}",
+        "Mode:",
+        if af_xdp { "XDP" } else { "AF_PACKET" }
+    );
+    if af_xdp {
         println!("{:<20} {}", "  Zero Copy:", zero_copy);
         println!("{:<20} {}", "  Generic Mode:", generic_mode);
     }
@@ -202,15 +212,12 @@ async fn main() {
     out.extend_from_slice(json.as_bytes());
     out.extend("\n".as_bytes());
 
-    // Ermittle den Pfad zur aktuellen Binary und leite den Scanner-Pfad ab
     let mut scanner_path = std::env::current_exe().expect("Konnte Programmpfad nicht ermitteln");
-    scanner_path.pop(); // Entfernt "mock_program" vom Pfad
-    scanner_path.push("scanner"); // Fügt "scanner" hinzu
-
-    // Argumente dynamisch zusammenbauen
+    scanner_path.pop();
+    scanner_path.push("scanner");
     let mut args = vec![scanner_path.to_string_lossy().into_owned()];
 
-    if xdp {
+    if af_xdp {
         args.push("--xdp".to_string());
     }
     if generic_mode {
@@ -303,13 +310,15 @@ fn build_template_ipv6(
     src_mac: MacAddr,
     single_dst_port: Option<u16>,
 ) -> Vec<u8> {
-    use pnet::packet::ethernet::{EtherTypes, MutableEthernetPacket};
-    use pnet::packet::ipv6::MutableIpv6Packet;
-    use pnet::packet::tcp::{MutableTcpPacket, ipv6_checksum as tcp_ipv6_checksum};
     use std::net::Ipv6Addr;
 
-    // Ethernet + IPv6 + TCP
-    let mut ethernet_buffer = [0u8; 14 + 40 + 20];
+    use pnet::packet::{
+        ethernet::{EtherTypes, MutableEthernetPacket},
+        ipv6::MutableIpv6Packet,
+        tcp::{MutableTcpPacket, TcpOption, ipv6_checksum as tcp_ipv6_checksum},
+    };
+
+    let mut ethernet_buffer = [0u8; 14 + 40 + 24];
     let (eth_slice, rest) = ethernet_buffer.split_at_mut(14);
     let (ipv6_slice, tcp_slice) = rest.split_at_mut(40);
 
@@ -322,11 +331,10 @@ fn build_template_ipv6(
     // IPv6 Header
     let mut ipv6_packet = MutableIpv6Packet::new(ipv6_slice).unwrap();
     ipv6_packet.set_version(6);
-    ipv6_packet.set_payload_length(20); // TCP header, no payload
+    ipv6_packet.set_payload_length(24); // TCP header (24 bytes), no payload
     ipv6_packet.set_next_header(pnet::packet::ip::IpNextHeaderProtocols::Tcp);
     ipv6_packet.set_hop_limit(64);
     ipv6_packet.set_source(src_ip);
-    // Zieladresse bleibt 0, wird später ersetzt
     ipv6_packet.set_destination(Ipv6Addr::new(0, 0, 0, 0, 0, 0, 0, 0));
 
     // TCP Header
@@ -339,10 +347,13 @@ fn build_template_ipv6(
     }
     tcp_packet.set_sequence(0);
     tcp_packet.set_acknowledgement(0);
-    tcp_packet.set_data_offset(5);
+    tcp_packet.set_data_offset(6); // 6 * 4 = 24 bytes
     tcp_packet.set_flags(TcpFlags::SYN);
     tcp_packet.set_window(64240);
     tcp_packet.set_urgent_ptr(0);
+
+    // Set MSS Option for better scanning result
+    tcp_packet.set_options(&[TcpOption::mss(1460)]);
 
     // TCP Checksum
     let tcp_checksum = tcp_ipv6_checksum(
@@ -363,8 +374,11 @@ fn build_template_ipv4(
     src_mac: MacAddr,
     single_dst_port: Option<u16>,
 ) -> Vec<u8> {
+    use pnet::packet::tcp::TcpOption;
+
     // Ethernet frame
-    let mut ethernet_buffer = [0u8; 54]; // Ethernet + IPv4 + TCP
+    // Ethernet (14) + IPv4 (20) + TCP (24, with MSS) = 58 bytes
+    let mut ethernet_buffer = [0u8; 58];
     let (eth_slice, rest) = ethernet_buffer.split_at_mut(14);
     let (ipv4_slice, tcp_slice) = rest.split_at_mut(20);
 
@@ -381,7 +395,7 @@ fn build_template_ipv4(
     let mut ipv4_packet = MutableIpv4Packet::new(ipv4_slice).unwrap();
     ipv4_packet.set_version(4);
     ipv4_packet.set_header_length(5);
-    ipv4_packet.set_total_length(40); // 20 (IPv4) + 20 (TCP) + 6 (Padding)
+    ipv4_packet.set_total_length(44); // 20 (IPv4) + 24 (TCP) = 44
     ipv4_packet.set_ttl(64);
     ipv4_packet.set_next_level_protocol(IpNextHeaderProtocols::Tcp);
     ipv4_packet.set_source(src_ip);
@@ -404,10 +418,14 @@ fn build_template_ipv4(
     }
     tcp_packet.set_sequence(0); // Sequence number = 0
     tcp_packet.set_acknowledgement(0);
-    tcp_packet.set_data_offset(5);
+    tcp_packet.set_data_offset(6); // 6 * 4 = 24 bytes header length
     tcp_packet.set_flags(TcpFlags::SYN);
     tcp_packet.set_window(64240);
     tcp_packet.set_urgent_ptr(0);
+
+    // Set MSS Option
+    tcp_packet.set_options(&[TcpOption::mss(1460)]);
+
     // TCP Checksum berechnen
     let tcp_checksum = tcp_ipv4_checksum(
         &tcp_packet.to_immutable(),
@@ -416,9 +434,10 @@ fn build_template_ipv4(
     );
     tcp_packet.set_checksum(tcp_checksum);
 
-    // Das Paket ist jetzt fertig
     let mut result = ethernet_buffer.to_vec();
-    result.extend_from_slice(&[0u8; 6]);
+    // Padding to reach 60 bytes minimum Ethernet frame size (excluding FCS)
+    // 58 bytes + 2 bytes padding = 60 bytes
+    result.extend_from_slice(&[0u8; 2]);
     result
 }
 
@@ -452,7 +471,6 @@ async fn write_ips_batched<W: AsyncWriteExt + Unpin>(
         buffer_size -= buffer_size % ip_len;
     }
     if buffer_size == 0 {
-        // Fallback for extremely small estimated_total_bytes < ip_len (should not happen if count >= 1)
         buffer_size = ip_len;
     }
 

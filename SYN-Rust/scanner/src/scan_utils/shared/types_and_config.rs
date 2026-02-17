@@ -1,11 +1,9 @@
 use std::sync::Arc;
 
-use aya::maps::MapData;
-use aya::maps::XskMap;
+use aya::maps::{MapData, XskMap};
 use pnet::util::MacAddr;
 use serde::{Deserialize, Serialize};
-use tokio::sync::mpsc::Receiver;
-use tokio::sync::mpsc::Sender;
+use tokio::sync::mpsc::{Receiver, Sender};
 
 use crate::Args;
 
@@ -155,7 +153,7 @@ pub struct EmissionConfig {
     pub send_in_batches: bool,
     pub assembler_size: usize,
     pub parsing_timeout_millis: u64,
-    pub xdp: bool,
+    pub af_xdp: bool,
     pub num_nic_queues: usize,
     pub reset: bool,
     pub dst_mac: MacAddr,
@@ -197,7 +195,7 @@ impl GivenConfig {
             assembler_size,
             parsing_timeout_millis: args.parsing_timeout_millis,
             dst_mac: MacAddr::from(self.dst_mac),
-            xdp: args.xdp,
+            af_xdp: args.xdp,
             num_nic_queues: args.num_nic_queues,
             reset: self.reset,
             src_mac: MacAddr::from(self.src_mac),

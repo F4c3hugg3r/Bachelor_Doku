@@ -1,19 +1,23 @@
 #!/bin/bash
 
-# Das Skript beenden, wenn ein Befehl fehlschlägt (Fehlererkennung)
+# Das Skript sofort beenden, wenn ein Befehl fehlschlägt
 set -e
 
-echo "[*] Aktualisiere Paketlisten..."
+# --- KONFIGURATION ---
+# Wir nutzen exakt die Version vom 08.12.2025 (Rust 1.94).
+# Neuere Versionen (1.95+, Feb 2026) erzeugen fehlerhaften BTF-Code.
+RUST_NIGHTLY_VERSION="nightly-2025-12-08"
+
+echo "=================================================="
+echo "[*] SYN-Rust Setup Script"
+echo "=================================================="
+
+echo "[*] 1. System-Updates..."
 sudo apt-get update
 
-# Variable für die aktuelle Kernel-Version setzen
 KERNEL_VERSION=$(uname -r)
 
-echo "[*] Installiere System-Abhängigkeiten (apt)..."
-# Zusammenfassung aller apt-Pakete aus Ihren Anforderungen:
-# - xdp-socket: libelf-dev, libbpf-dev, gcc-multilib, linux-headers
-# - aya: linux-tools, linux-tools-common, linux-tools-generic
-# - jemalloc: build-essential
+echo "[*] 2. Installiere System-Abhängigkeiten (apt)..."
 sudo apt-get install -y \
     build-essential \
     libelf-dev \
@@ -22,7 +26,8 @@ sudo apt-get install -y \
     linux-headers-${KERNEL_VERSION} \
     linux-tools-common \
     linux-tools-generic \
-    linux-tools-${KERNEL_VERSION}
+    linux-tools-${KERNEL_VERSION} \
+    libpcap-dev
 
 echo "[*] System-Abhängigkeiten installiert."
 
@@ -33,25 +38,66 @@ if ! command -v rustup &> /dev/null; then
     exit 1
 fi
 
-echo "[*] Richte Rust Toolchains ein..."
+echo "[*] 3. Bereinige Toolchains..."
 
-# Stable Toolchain installieren
-echo "    -> Installing stable..."
-rustup toolchain install stable
-
-# Nightly Toolchain mit rust-src Komponente installieren (für BPF/Aya oft notwendig)
-echo "    -> Installing nightly + rust-src..."
-rustup toolchain install nightly --component rust-src
-
-# bpf-linker installieren
-echo "[*] Installiere bpf-linker (via Cargo)..."
-if ! command -v bpf-linker &> /dev/null; then
-    cargo install bpf-linker
-else
-    echo "    -> bpf-linker ist bereits installiert. Aktualisiere..."
-    cargo install bpf-linker --force
+# Entferne die allgemeine "nightly" (die oft auf die kaputte 1.95 zeigt),
+# damit keine Verwechslungsgefahr besteht.
+if rustup toolchain list | grep -q "^nightly-x86_64"; then
+    echo "    -> Entferne allgemeine 'nightly' Toolchain (Vermeidung von Version 1.95+)..."
+    rustup toolchain uninstall nightly
 fi
 
-echo "------------------------------------------------"
-echo "[OK] Alle Abhängigkeiten erfolgreich installiert."
-echo "------------------------------------------------"
+echo "[*] 4. Richte spezifische Rust Toolchains ein..."
+
+# Stable Toolchain (für normale Tools)
+rustup toolchain install stable
+
+# Unsere spezifische funktionierende Version installieren
+echo "    -> Installiere $RUST_NIGHTLY_VERSION + rust-src..."
+rustup toolchain install "$RUST_NIGHTLY_VERSION" --component rust-src
+
+# --- PROJEKT SPEZIFISCHE SCHRITTE ---
+# Wir prüfen, ob wir im Projekt sind. Das ist WICHTIG für den bpf-linker Build.
+if [ -f "Cargo.toml" ]; then
+    echo "------------------------------------------------"
+    echo "[*] 5. Konfiguriere aktuelles Projekt..."
+    
+    # SCHRITT A: Override setzen
+    # Das muss passieren, BEVOR wir bpf-linker installieren, damit der Linker
+    # gegen die hier definierte Rust-Version gebaut wird.
+    echo "    -> Setze Toolchain Override auf $RUST_NIGHTLY_VERSION..."
+    rustup override set "$RUST_NIGHTLY_VERSION"
+
+    # SCHRITT B: bpf-linker passend zur Toolchain bauen
+    echo "    -> Installiere bpf-linker (Rebuild gegen Rust 1.94)..."
+    # Wir deinstallieren ihn zuerst, um sicherzugehen, dass keine alten Artefakte bleiben
+    if command -v bpf-linker &> /dev/null; then
+        cargo uninstall bpf-linker 2>/dev/null || true
+    fi
+    # Installation erzwingen
+    cargo install bpf-linker
+
+    # SCHRITT C: Aufräumen & Bauen
+    echo "    -> Führe 'cargo clean' aus (Verhindert ABI-Mismatch)..."
+    cargo clean
+
+    echo "    -> Baue Programm"
+    cargo build --release
+    cargo build --release --bin mock_program
+
+    echo "------------------------------------------------"
+    echo "[OK] Setup und Build erfolgreich!"
+    echo "     Starten Sie das Programm mit: sudo ./target/release/mock_program"
+else
+    # Fallback, falls das Skript nicht im Projektordner liegt
+    echo "------------------------------------------------"
+    echo "[*] Installiere bpf-linker global (für $RUST_NIGHTLY_VERSION)..."
+    # Wir nutzen explizit '+version', da kein Override aktiv ist
+    cargo +$RUST_NIGHTLY_VERSION install bpf-linker --force
+    
+    echo "------------------------------------------------"
+    echo "[OK] Umgebung installiert."
+    echo "     HINWEIS: Sie befinden sich nicht in einem Rust-Projektordner."
+    echo "     Bitte führen Sie im Projektordner einmalig aus:"
+    echo "     rustup override set $RUST_NIGHTLY_VERSION"
+fi

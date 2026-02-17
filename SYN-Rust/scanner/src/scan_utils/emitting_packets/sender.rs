@@ -1,25 +1,31 @@
-use crate::scan_utils::shared::helper::{
-    self, find_fitting_ethernet_ifindex, find_interface_index_by_name,
+use std::{
+    io::IoSlice,
+    os::fd::{AsRawFd, OwnedFd},
+    sync::{
+        Arc,
+        atomic::{AtomicBool, AtomicUsize, Ordering},
+    },
+    thread,
+    time::Duration,
 };
-use crate::scan_utils::shared::types_and_config::{
-    DONE, EmissionConfig, FINISH, ReceiverChan, ScanErr, ScannerErrWithMsg,
-};
-use nix::libc::{self};
-use nix::sys::socket::SockaddrLike;
-use nix::sys::socket::{
-    AddressFamily, LinkAddr, MsgFlags, MultiHeaders, SockFlag, SockProtocol, SockType, sendmmsg,
-    sendto, socket,
+
+use nix::{
+    libc::{self},
+    sys::socket::{
+        AddressFamily, LinkAddr, MsgFlags, MultiHeaders, SockFlag, SockProtocol, SockType,
+        SockaddrLike, sendmmsg, sendto, socket,
+    },
 };
 use pnet::util::MacAddr;
-use std::io::IoSlice;
-use std::os::fd::AsRawFd;
-use std::os::fd::OwnedFd;
-use std::sync::Arc;
-use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
-use std::thread;
-use std::time::Duration;
-use tokio::sync::mpsc::{Receiver, Sender};
-use tokio::time::{self, Instant};
+use tokio::{
+    sync::mpsc::{Receiver, Sender},
+    time::{self, Instant},
+};
+
+use crate::scan_utils::shared::{
+    helper::{self, find_fitting_ethernet_ifindex, find_interface_index_by_name},
+    types_and_config::{DONE, EmissionConfig, FINISH, ReceiverChan, ScanErr, ScannerErrWithMsg},
+};
 // use tokio::sync::oneshot::Receiver as OneshotReceiver;
 
 #[derive(Debug)]
@@ -58,7 +64,6 @@ impl PacketSender {
         tx_notify_capturer: Sender<String>,
         mut tx_sockets: Option<Vec<xdp_socket::socket::Socket<true>>>,
     ) -> Result<(), ScannerErrWithMsg> {
-        // initialize packet sender
         let count_packets = Arc::new(AtomicUsize::new(0));
         let packet_sender = Arc::new(Self {
             config: emission_config.clone(),
@@ -96,7 +101,7 @@ impl PacketSender {
             msg: "Could not retrieve core IDs for thread pinning".to_string(),
         })?;
 
-        if emission_config.xdp {
+        if emission_config.af_xdp {
             eprintln!("waiting for socket initialization...");
             std::thread::sleep(Duration::from_micros(3000));
         }
@@ -244,9 +249,6 @@ impl PacketSender {
         }
         std::thread::sleep(Duration::from_micros(1000));
         std::thread::yield_now();
-        std::thread::sleep(Duration::from_micros(1000));
-        std::thread::yield_now();
-
         Ok(())
     }
 
@@ -260,7 +262,7 @@ impl PacketSender {
         loop {
             let count = batches_to_send.blocking_recv_many(&mut batch_buf, 32);
             if count == 0 {
-                if self.config.xdp && !self.config.zero_copy {
+                if self.config.af_xdp && !self.config.zero_copy {
                     self.flush_xdp(&mut sock)?;
                     eprintln!("{}. Flushing socket", ASSEMBLING_FINSIH_EXPECTED_MSG);
                 } else {
@@ -297,7 +299,6 @@ impl PacketSender {
                         continue;
                     }
 
-                    // Erfolg: Reset Backoff Counter
                     congestion_retries = 0;
 
                     for i in 0..available {
@@ -423,7 +424,7 @@ impl PacketSender {
             let count = packets_to_send.blocking_recv_many(&mut packet_buf, 64);
             if count == 0 {
                 return {
-                    if self.config.xdp && !self.config.zero_copy {
+                    if self.config.af_xdp && !self.config.zero_copy {
                         self.flush_xdp(&mut sock)?;
                         eprintln!("{}. Flushing socket", ASSEMBLING_FINSIH_EXPECTED_MSG);
                     } else {
@@ -558,7 +559,7 @@ impl PacketSender {
             let ret = libc::setsockopt(
                 raw_fd,
                 libc::SOL_PACKET,
-                libc::PACKET_QDISC_BYPASS, // Umgeht Traffic Control
+                libc::PACKET_QDISC_BYPASS, // Bypasses Traffic Control
                 &val as *const i32 as *const libc::c_void,
                 std::mem::size_of::<i32>() as libc::socklen_t,
             );
@@ -566,7 +567,7 @@ impl PacketSender {
                 eprintln!("Warning: Could not set PACKET_QDISC_BYPASS");
             }
 
-            // Send Buffer erhöhen (32MB), um ENOBUFS zu reduzieren
+            // bump up send buffer
             let sndbuf_size: i32 = 32 * 1024 * 1024;
             let ret_sndbuf = libc::setsockopt(
                 raw_fd,

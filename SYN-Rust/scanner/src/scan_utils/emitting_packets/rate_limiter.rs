@@ -1,22 +1,27 @@
-use std::ops::Div;
-use std::sync::atomic::Ordering;
 use std::{
-    sync::{Arc, atomic::AtomicUsize},
+    ops::Div,
+    sync::{
+        Arc,
+        atomic::{AtomicUsize, Ordering},
+    },
     time::Duration,
 };
 
-use crate::scan_utils::shared::helper;
-use crate::scan_utils::shared::types_and_config::{
-    AssemblerDstIps, CONTINUE, DONE, FINISH, ReceiverChan, STOP, SenderChan, TCP_IPV4_PACKET_SIZE,
-    TCP_IPV6_PACKET_SIZE,
+use tokio::{
+    sync::mpsc::{Receiver, Sender},
+    task::JoinHandle,
 };
+
 use crate::scan_utils::{
     emitting_packets::assembler::PacketAssembler,
-    shared::types_and_config::{EmissionConfig, ScanErr, ScannerErrWithMsg},
+    shared::{
+        helper,
+        types_and_config::{
+            AssemblerDstIps, CONTINUE, DONE, EmissionConfig, FINISH, ReceiverChan, STOP, ScanErr,
+            ScannerErrWithMsg, SenderChan, TCP_IPV4_PACKET_SIZE, TCP_IPV6_PACKET_SIZE,
+        },
+    },
 };
-use tokio::sync::mpsc::Receiver;
-use tokio::sync::mpsc::Sender;
-use tokio::task::JoinHandle;
 
 #[derive(Debug)]
 pub struct RateLimiter {
@@ -157,12 +162,19 @@ impl RateLimiter {
         };
         let mut handles = Vec::new();
         let mut stop = false;
+        let mut leftover_ipv4: Vec<[u8; 4]> = Vec::new();
+        let mut leftover_ipv6: Vec<[u8; 16]> = Vec::new();
 
         while !stop {
             let packets_to_send = self.check_current_sent_bytes(None).await?;
             let assembler_dst_ips = match &mut dst_ips {
                 ReceiverChan::ParsedIpv4(rx) => {
                     let mut assembler_buf_ipv4: Vec<[u8; 4]> = Vec::with_capacity(packets_to_send);
+
+                    // Drain leftovers first
+                    let take = std::cmp::min(packets_to_send, leftover_ipv4.len());
+                    assembler_buf_ipv4.extend(leftover_ipv4.drain(0..take));
+
                     while assembler_buf_ipv4.len() < packets_to_send {
                         tokio::select! {
                             batch = rx.recv() => {
@@ -173,9 +185,10 @@ impl RateLimiter {
                                                 stop = true;
                                                 break;
                                             }
-                                            assembler_buf_ipv4.push(ip);
-                                            if assembler_buf_ipv4.len() >= packets_to_send {
-                                                break;
+                                            if assembler_buf_ipv4.len() < packets_to_send {
+                                                assembler_buf_ipv4.push(ip);
+                                            } else {
+                                                leftover_ipv4.push(ip);
                                             }
                                         }
                                         if stop { break; }
@@ -223,6 +236,11 @@ impl RateLimiter {
                 }
                 ReceiverChan::ParsedIpv6(rx) => {
                     let mut assembler_buf_ipv6: Vec<[u8; 16]> = Vec::with_capacity(packets_to_send);
+
+                    // Drain leftovers first
+                    let take = std::cmp::min(packets_to_send, leftover_ipv6.len());
+                    assembler_buf_ipv6.extend(leftover_ipv6.drain(0..take));
+
                     while assembler_buf_ipv6.len() < packets_to_send {
                         tokio::select! {
                              batch = rx.recv() => {
@@ -233,9 +251,10 @@ impl RateLimiter {
                                                 stop = true;
                                                 break;
                                             }
-                                            assembler_buf_ipv6.push(ip);
-                                             if assembler_buf_ipv6.len() >= packets_to_send {
-                                                break;
+                                            if assembler_buf_ipv6.len() < packets_to_send {
+                                                assembler_buf_ipv6.push(ip);
+                                            } else {
+                                                leftover_ipv6.push(ip);
                                             }
                                         }
                                          if stop { break; }
@@ -287,44 +306,21 @@ impl RateLimiter {
                 ),
             };
 
-            let mut assembler_dst_ips_opt = Some(assembler_dst_ips);
-            let tries = if self.config.retries > 0 {
-                1 + self.config.retries
-            } else {
-                1
-            };
-            for i in 0..tries {
-                if i > 0 {
-                    let needed = match assembler_dst_ips_opt.as_ref().unwrap() {
-                        AssemblerDstIps::Ipv4(buf) => buf.len() * TCP_IPV4_PACKET_SIZE,
-                        AssemblerDstIps::Ipv6(buf) => buf.len() * TCP_IPV6_PACKET_SIZE,
-                    };
-                    self.check_current_sent_bytes(Some(needed)).await?;
+            let sender_chan = match &self.sender_list {
+                SenderChan::BatchList(list) if self.config.send_in_batches => {
+                    SenderChan::Batch(list[self.decide_current_sender()].clone())
                 }
-                let assembler_dst_ips_clone = if i == tries - 1 {
-                    assembler_dst_ips_opt.take().unwrap()
-                } else {
-                    match assembler_dst_ips_opt.as_ref().unwrap() {
-                        AssemblerDstIps::Ipv4(buf) => AssemblerDstIps::Ipv4(buf.clone()),
-                        AssemblerDstIps::Ipv6(buf) => AssemblerDstIps::Ipv6(buf.clone()),
-                    }
-                };
-                let sender_chan = match &self.sender_list {
-                    SenderChan::BatchList(list) if self.config.send_in_batches => {
-                        SenderChan::Batch(list[self.decide_current_sender()].clone())
-                    }
-                    SenderChan::PacketList(list) if !self.config.send_in_batches => {
-                        SenderChan::Packet(list[self.decide_current_sender()].clone())
-                    }
-                    _ => unreachable!(
-                        "SenderChan must be BatchList or PacketList for start_spawning_from_chan!"
-                    ),
-                };
-                let handle = self
-                    .spawn_assembler(assembler_dst_ips_clone, sender_chan, dst_port_index)
-                    .await;
-                handles.push(handle);
-            }
+                SenderChan::PacketList(list) if !self.config.send_in_batches => {
+                    SenderChan::Packet(list[self.decide_current_sender()].clone())
+                }
+                _ => unreachable!(
+                    "SenderChan must be BatchList or PacketList for start_spawning_from_chan!"
+                ),
+            };
+            let handle = self
+                .spawn_assembler(assembler_dst_ips, sender_chan, dst_port_index)
+                .await;
+            handles.push(handle);
         }
         Ok((dst_ip_buf, handles))
     }
@@ -375,43 +371,27 @@ impl RateLimiter {
                 }
             };
 
-            let mut tries = 1;
-            if self.config.retries > 0 {
-                tries = 1 + self.config.retries;
-            }
-            for i in 0..tries {
-                if i > 0 {
-                    let needed = match &assembler_dst_ips {
-                        AssemblerDstIps::Ipv4(buf) => buf.len() * TCP_IPV4_PACKET_SIZE,
-                        AssemblerDstIps::Ipv6(buf) => buf.len() * TCP_IPV6_PACKET_SIZE,
-                    };
-                    self.check_current_sent_bytes(Some(needed)).await?;
+            let sender_chan = match &self.sender_list {
+                SenderChan::BatchList(list) if self.config.send_in_batches => {
+                    SenderChan::Batch(list[self.decide_current_sender()].clone())
                 }
-                let sender_chan = match &self.sender_list {
-                    SenderChan::BatchList(list) if self.config.send_in_batches => {
-                        SenderChan::Batch(list[self.decide_current_sender()].clone())
-                    }
-                    SenderChan::PacketList(list) if !self.config.send_in_batches => {
-                        SenderChan::Packet(list[self.decide_current_sender()].clone())
-                    }
-                    _ => unreachable!(
-                        "SenderChan must be BatchList or PacketList for start_spawning_from_buf!"
-                    ),
-                };
-                // TEST
-                // eprintln!(
-                //     "Retry: packets_to_send={}, current_ind={}, retry_buf={:?}",
-                //     packets_to_send, current_ind, retry_buf
-                // );
-                let assembler_dst_ips_clone = match &assembler_dst_ips {
-                    AssemblerDstIps::Ipv4(buf) => AssemblerDstIps::Ipv4(buf.clone()),
-                    AssemblerDstIps::Ipv6(buf) => AssemblerDstIps::Ipv6(buf.clone()),
-                };
-                let handle = self
-                    .spawn_assembler(assembler_dst_ips_clone, sender_chan, dst_port_index)
-                    .await;
-                handles.push(handle);
-            }
+                SenderChan::PacketList(list) if !self.config.send_in_batches => {
+                    SenderChan::Packet(list[self.decide_current_sender()].clone())
+                }
+                _ => unreachable!(
+                    "SenderChan must be BatchList or PacketList for start_spawning_from_buf!"
+                ),
+            };
+            // TEST
+            // eprintln!(
+            //     "Retry: packets_to_send={}, current_ind={}, retry_buf={:?}",
+            //     packets_to_send, current_ind, retry_buf
+            // );
+            let handle = self
+                .spawn_assembler(assembler_dst_ips, sender_chan, dst_port_index)
+                .await;
+            handles.push(handle);
+
             current_ind = end;
         }
         Ok(handles)
@@ -573,8 +553,10 @@ impl RateLimiter {
         &self,
         needed: Option<usize>,
     ) -> Result<usize, ScannerErrWithMsg> {
-        // scan_rate is in Mbit/s, convert to Bytes/s
-        let scanrate = (self.config.scan_rate as usize * 1_000_000) / 8;
+        let mut scanrate = (self.config.scan_rate as usize * 1_000_000) / 8;
+        if self.config.retries > 0 {
+            scanrate /= self.config.retries as usize + 1;
+        }
         let timeout = Duration::from_millis(self.config.parsing_timeout_millis);
         let mut elapsed = Duration::ZERO;
 

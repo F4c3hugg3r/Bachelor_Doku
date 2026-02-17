@@ -9,20 +9,25 @@ use std::{
     },
     time::Duration,
 };
+
+use aya::maps::RingBuf;
+use core_affinity::CoreId;
+use etherparse::{
+    NetHeaders::{Ipv4, Ipv6},
+    PacketHeaders,
+};
+use pcap::{Capture, Device};
+use tokio::{
+    io::unix::AsyncFd,
+    sync::mpsc::{Receiver, Sender},
+};
+use xdp_common::PacketLog;
 use zerocopy::FromBytes;
 
 use crate::scan_utils::{
     capturing_packets::deduplicator::Deduplicator,
     shared::types_and_config::{CONTINUE, CaptureConfig, ScanErr, ScannerErrWithMsg, Target},
 };
-use aya::maps::RingBuf;
-use core_affinity::CoreId;
-use etherparse::NetHeaders::{Ipv4, Ipv6};
-use etherparse::PacketHeaders;
-use pcap::{Capture, Device};
-use tokio::io::unix::AsyncFd;
-use tokio::sync::mpsc::{Receiver, Sender};
-use xdp_common::PacketLog;
 
 pub struct PacketReceiver {
     config: Arc<CaptureConfig>,
@@ -212,7 +217,6 @@ impl PacketReceiver {
 
         // CSV Output: ip,port
         let port_val = u16::from_be_bytes(src_port);
-        // Writing directly to the buffer avoids intermediate String allocations (Performance!)
         let _ = writeln!(self.output_buffer, "{},{}", src_ip, port_val);
 
         if self.output_buffer.len() >= BATCH_SIZE {
